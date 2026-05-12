@@ -2,6 +2,7 @@
 	import Header from '$lib/components/Header.svelte';
 	import Hero from '$lib/components/Hero.svelte';
 	import Companions from '$lib/components/Companions.svelte';
+	import Details from '$lib/components/Details.svelte';
 	import Journey from '$lib/components/Journey.svelte';
 	import MoreFeatures from '$lib/components/MoreFeatures.svelte';
 	import FAQ from '$lib/components/FAQ.svelte';
@@ -12,6 +13,7 @@
 <main>
 	<Hero />
 	<Companions />
+	<Details />
 	<Journey />
 	<MoreFeatures />
 	<FAQ />
