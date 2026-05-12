@@ -68,7 +68,7 @@
 			</div>
 			<h3 class="text-xl sm:text-2xl font-bold mb-3">Early access spots are limited</h3>
 			<p class="text-muted-foreground mb-6">
-				Be among the first to experience the next generation of AI companionship. Founding members get priority access, exclusive features, and help shape the future of JustHoney.
+				Be among the first to experience the next generation of AI companionship. Founding members get priority access, exclusive features, and help shape the future of provoque.
 			</p>
 			<div class="flex justify-center gap-6 sm:gap-12">
 				<div class="text-center">

@@ -3,11 +3,10 @@
 		<div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-10">
 			<div class="text-center md:text-left">
 				<div class="flex items-center gap-2.5 justify-center md:justify-start mb-3">
-					<span class="text-xl sm:text-2xl font-bold tracking-tight">
-						<span class="bg-gradient-to-r from-honey to-honey-light bg-clip-text text-transparent">Just</span>
-						<span class="text-foreground">Honey</span>
-						<span class="text-honey/60">.ai</span>
-					</span>
+				<span class="text-xl sm:text-2xl font-bold tracking-tight">
+					<span class="bg-gradient-to-r from-honey to-honey-light bg-clip-text text-transparent">provoque</span>
+					<span class="text-honey/60">.ai</span>
+				</span>
 				</div>
 				<p class="text-sm text-muted-foreground max-w-xs">The future of AI companionship. Memory, emotion, connection.</p>
 			</div>
@@ -16,7 +15,7 @@
 				<a href="/ai-companion" class="text-muted-foreground hover:text-foreground transition-colors">Uncensored AI Chat — Free</a>
 				<a href="/companions" class="text-muted-foreground hover:text-foreground transition-colors">8 Irresistible AI Women</a>
 				<a href="/blog" class="text-muted-foreground hover:text-foreground transition-colors">NSFW AI Girlfriend Guide</a>
-				<a href="mailto:hello@justhoney.ai" class="text-muted-foreground hover:text-foreground transition-colors">Contact</a>
+				<a href="mailto:hello@provoque.ai" class="text-muted-foreground hover:text-foreground transition-colors">Contact</a>
 			</nav>
 			<div class="flex items-center gap-4">
 				<a href="#" class="text-muted-foreground hover:text-honey transition-colors p-2" aria-label="Twitter"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg></a>

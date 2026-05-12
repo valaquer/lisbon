@@ -7,10 +7,9 @@
 >
 	<a href="/" class="cursor-pointer">
 		<div class="flex items-center gap-2.5">
-			<img src={logo} alt="JustHoney.ai logo" class="w-9 h-9 sm:w-10 sm:h-10" />
+			<img src={logo} alt="provoque.ai logo" class="w-9 h-9 sm:w-10 sm:h-10" />
 			<span class="text-xl sm:text-2xl font-bold tracking-tight">
-				<span class="bg-gradient-to-r from-honey to-honey-light bg-clip-text text-transparent">Just</span>
-				<span class="text-foreground">Honey</span>
+				<span class="bg-gradient-to-r from-honey to-honey-light bg-clip-text text-transparent">provoque</span>
 				<span class="text-honey/60">.ai</span>
 			</span>
 		</div>
