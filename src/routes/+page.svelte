@@ -13,8 +13,8 @@
 <main>
 	<Hero />
 	<Companions />
-	<Details />
 	<Journey />
+	<Details />
 	<MoreFeatures />
 	<FAQ />
 </main>

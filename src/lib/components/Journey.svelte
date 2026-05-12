@@ -4,9 +4,6 @@
 	import LunaProfile from '$lib/assets/Luna_Profile_Picture.png';
 	import RavenProfile from '$lib/assets/Raven_Profile_Picture.png';
 	import YukiProfile from '$lib/assets/Yuki_Profile_Picture.png';
-	import ZaraProfile from '$lib/assets/Zara_Profile_Picture.png';
-	import VictoriaProfile from '$lib/assets/Victoria_Profile_Picture.png';
-	import AlexProfile from '$lib/assets/Alex_Profile_Picture.png';
 	import RavenSpicy from '$lib/assets/Raven_Spicy_Picture.png';
 </script>
 
@@ -149,10 +146,10 @@
 									<div class="pt-10 pb-2 px-4 bg-card/50 backdrop-blur-sm border-b border-border">
 										<div class="flex items-center gap-2.5">
 											<div class="w-9 h-9 rounded-full overflow-hidden">
-												<img src={SofiaProfile} alt="Sofia" class="w-full h-full object-cover" />
+												<img src={EmmaProfile} alt="Emma" class="w-full h-full object-cover" />
 											</div>
 											<div>
-												<p class="font-semibold text-xs">Sofia</p>
+												<p class="font-semibold text-xs">Emma</p>
 												<p class="text-[10px] text-muted-foreground">Online</p>
 											</div>
 										</div>
@@ -161,12 +158,26 @@
 										<div class="bg-card rounded-lg p-3 border border-border">
 											<p class="text-xs font-semibold mb-2">365 days together 💕</p>
 											<div class="h-2 bg-muted rounded-full overflow-hidden">
-												<div class="h-full w-3/4 bg-gradient-to-r from-honey to-honey-light rounded-full"></div>
+												<div class="h-full w-[92%] bg-gradient-to-r from-honey to-honey-light rounded-full"></div>
 											</div>
 										</div>
 										<div class="bg-card rounded-lg p-3 border border-border">
 											<p class="text-xs font-semibold mb-1">Intimate Moments</p>
-											<p class="text-xs text-muted-foreground">Your Bond</p>
+											<p class="text-xs text-muted-foreground">1,247</p>
+										</div>
+										<div class="bg-card rounded-lg p-3 border border-border">
+											<p class="text-xs font-semibold mb-1">Your Bond</p>
+											<p class="text-xs text-muted-foreground">92%</p>
+										</div>
+										<div class="grid grid-cols-2 gap-1">
+											<div class="aspect-square rounded-md bg-muted overflow-hidden"><div class="w-full h-full bg-gradient-to-br from-honey/20 to-honey/5"></div></div>
+											<div class="aspect-square rounded-md bg-muted overflow-hidden"><div class="w-full h-full bg-gradient-to-br from-honey/20 to-honey/5"></div></div>
+											<div class="aspect-square rounded-md bg-muted overflow-hidden relative">
+												<div class="w-full h-full bg-gradient-to-br from-honey/20 to-honey/5"></div>
+												<div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+													<span class="text-white text-sm font-bold">+12</span>
+												</div>
+											</div>
 										</div>
 									</div>
 									<div class="p-3.5 border-t border-border bg-card/50">

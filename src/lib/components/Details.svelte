@@ -2,6 +2,7 @@
 	import LunaProfile from '$lib/assets/Luna_Profile_Picture.png';
 	import YukiProfile from '$lib/assets/Yuki_Profile_Picture.png';
 	import RavenProfile from '$lib/assets/Raven_Profile_Picture.png';
+	import RavenSpicy from '$lib/assets/Raven_Spicy_Picture.png';
 </script>
 
 <section id="features" class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative bg-muted/30 dark:bg-muted/10">
@@ -164,7 +165,7 @@
 										</div>
 										<div class="flex justify-start">
 											<div class="rounded-2xl rounded-bl-md overflow-hidden max-w-[70%]">
-												<div class="bg-muted aspect-[3/4] flex items-center justify-center text-muted-foreground text-xs">Image</div>
+												<img src={RavenSpicy} alt="Shared image" class="w-full h-auto object-cover" />
 											</div>
 										</div>
 										<div class="flex justify-end">
