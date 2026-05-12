@@ -1,6 +1,6 @@
 # ARCHITECTURE.md — Project Lisbon
 
-Last updated: 2026-05-12 (A3 baseline)
+Last updated: 2026-05-12 (REQ-001: global styles)
 
 ---
 
@@ -9,7 +9,7 @@ Last updated: 2026-05-12 (A3 baseline)
 ```
 lisbon/
 ├── src/
-│   ├── app.css              # Global styles (Tailwind import)
+│   ├── app.css              # Global styles (Tailwind import, @font-face, CSS custom properties, dark theme)
 │   ├── app.d.ts             # SvelteKit type declarations
 │   ├── app.html             # HTML shell
 │   ├── lib/
@@ -18,7 +18,8 @@ lisbon/
 │   └── routes/
 │       ├── +layout.svelte   # Root layout (imports app.css)
 │       └── +page.svelte     # Landing page (will hold the full clone)
-├── static/                  # Public static files (robots.txt, images)
+├── static/
+│   └── fonts/                # Self-hosted fonts (Inter Tight, Geist Mono woff2)
 ├── svelte.config.js         # SvelteKit config (adapter)
 ├── vite.config.ts           # Vite config (SvelteKit + Tailwind plugins)
 ├── package.json
@@ -42,7 +43,15 @@ vite.config.ts
   └── @tailwindcss/vite (Tailwind CSS plugin)
 
 svelte.config.js
-  └── @sveltejs/adapter-auto (needs swap to adapter-vercel for deploy)
+  └── @sveltejs/adapter-vercel (runtime: nodejs22.x)
+
+app.css
+  ├── @import "tailwindcss" (Tailwind v4 base)
+  ├── @font-face (Inter Tight + Geist Mono, variable woff2)
+  ├── :root CSS custom properties (light theme colors)
+  ├── .dark overrides (dark theme colors)
+  ├── @theme registration (Tailwind utility mapping)
+  └── body base styles (font, bg, text color)
 ```
 
 **External dependencies (future):**
@@ -80,6 +89,7 @@ User submits email form
 | svelte.config.js | Deploy target | Deployment breaks if adapter misconfigured |
 | +page.svelte | Nothing (leaf) | Low risk, isolated to landing page content |
 | $lib/components/* (future) | +page.svelte | Scoped to individual sections |
+| static/fonts/* | app.css @font-face declarations | Broken font rendering if paths change |
 | static/* | Direct URL references | Broken images/assets if paths change |
 
 ---
@@ -88,4 +98,4 @@ User submits email form
 
 | Issue | Severity | Notes |
 |-------|----------|-------|
-| adapter-auto warning on build | Low | Need to swap to @sveltejs/adapter-vercel before Vercel deploy. Build succeeds but warns about unsupported production environment. |
+| provoque.ai domain inspect 403 | Low | Vercel API permissions quirk — domain serves correctly but `vercel domains inspect` returns 403 from company account |
