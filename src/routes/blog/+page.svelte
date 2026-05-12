@@ -26,8 +26,8 @@
 <main>
 	<section class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
 		<div class="max-w-6xl mx-auto">
-			<div class="text-center mb-12">
-				<h1 class="text-3xl sm:text-5xl lg:text-6xl font-bold mb-4">AI Companion Insights</h1>
+			<div class="max-w-4xl mx-auto text-center mb-12">
+				<h1 class="text-3xl sm:text-5xl lg:text-6xl font-bold mb-4">AI Companion <span class="bg-gradient-to-r from-honey to-honey-light bg-clip-text text-transparent">Insights</span></h1>
 				<p class="text-lg text-muted-foreground max-w-2xl mx-auto">Hands-on reviews, real comparisons, and honest guides for AI girlfriends and AI companions in 2026.</p>
 			</div>
 
@@ -42,15 +42,15 @@
 				{/each}
 			</div>
 
-			<div class="grid md:grid-cols-2 gap-6">
+			<div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
 				{#each posts.filter(p => p.cat === activeTab) as post}
-					<article class="bg-card rounded-xl border border-border p-6 hover:shadow-lg transition-all">
+					<article class="bg-card rounded-xl border border-border p-6 sm:p-8 hover:shadow-lg hover:border-honey/30 transition-all">
 						<div class="flex items-center gap-2 text-xs text-muted-foreground mb-3">
 							{post.date}
 							{#if post.readTime}<span>·</span><span>{post.readTime}</span>{/if}
 						</div>
 						<h2 class="text-lg font-bold mb-2">{post.title}</h2>
-						<p class="text-sm text-muted-foreground mb-4">{post.desc}</p>
+						<p class="text-sm text-muted-foreground mb-4 line-clamp-2">{post.desc}</p>
 						<div class="flex flex-wrap gap-2">
 							{#each post.tags as tag}
 								<span class="px-2 py-1 rounded-md text-xs bg-muted text-muted-foreground">{tag}</span>
