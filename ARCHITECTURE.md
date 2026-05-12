@@ -1,6 +1,6 @@
 # ARCHITECTURE.md — Project Lisbon
 
-Last updated: 2026-05-12 (REQ-005: full page sections)
+Last updated: 2026-05-12 (REQ-007: core features section)
 
 ---
 
@@ -15,8 +15,11 @@ lisbon/
 │   ├── lib/
 │   │   ├── assets/          # Static assets imported by components (favicon, logos, profile pics)
 │   │   ├── components/
-│   │   │   ├── Header.svelte # Sticky navbar with logo, nav links, CTA buttons
-│   │   │   └── Hero.svelte   # Hero section with headline, chat preview, waitlist counter
+│   │   │   ├── Header.svelte   # Sticky navbar with logo, nav links, CTA buttons
+│   │   │   ├── Hero.svelte     # Hero section with headline, chat preview, waitlist counter
+│   │   │   ├── Companions.svelte  # Features bar + Founding Member card
+│   │   │   ├── Details.svelte  # Core features: Unmatched Memory, Emotional Depth, Beyond Text
+│   │   │   ├── Journey.svelte  # "Your journey to connection" 3-step section
 │   │   └── index.ts         # Lib barrel export
 │   └── routes/
 │       ├── +layout.svelte   # Root layout (imports app.css)
@@ -41,7 +44,8 @@ app.html
         └── +page.svelte (landing page)
                ├── Header.svelte (sticky navbar)
 │               ├── Hero.svelte (hero section with chat preview)
-│               ├── $lib/components/* (future: carousel, FAQ, footer)
+│├── MoreFeatures.svelte  # "And so much more..." 6-card grid
+│               ├── FAQ.svelte          # 6 accordion questions/answers
               └── $lib/assets/* (images, fonts)
 
 vite.config.ts
