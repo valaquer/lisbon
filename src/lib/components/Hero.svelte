@@ -3,7 +3,7 @@
 	import SofiaSpicy from '$lib/assets/Sofia_Spicy_Picture.png';
 </script>
 
-<section class="relative lg:min-h-[100dvh] flex items-start pt-16 sm:pt-20 lg:pt-2 lg:overflow-hidden">
+<section class="relative pt-16 sm:pt-20 lg:pt-2">
 	<div class="py-4 sm:py-8 lg:py-2 xl:py-12 px-4 sm:px-6 lg:px-8 w-full">
 		<div class="max-w-7xl mx-auto">
 			<div class="grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center">
