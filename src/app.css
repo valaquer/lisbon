@@ -1,1 +1,88 @@
 @import "tailwindcss";
+
+@font-face {
+	font-family: "Inter Tight";
+	src: url("/fonts/inter-tight-variable.woff2") format("woff2");
+	font-weight: 100 900;
+	font-display: swap;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Geist Mono";
+	src: url("/fonts/geist-mono-variable.woff2") format("woff2");
+	font-weight: 100 900;
+	font-display: swap;
+	font-style: normal;
+}
+
+:root {
+	--honey: #d97706;
+	--honey-light: #f59e0b;
+	--honey-dark: #b45309;
+	--background: #fafafa;
+	--foreground: #0a0a0a;
+	--card: #ffffff;
+	--card-foreground: #0a0a0a;
+	--muted: #f3f4f6;
+	--muted-foreground: #6b7280;
+	--border: #e5e7eb;
+	--primary: #d97706;
+	--primary-foreground: #ffffff;
+	--secondary: #f3f4f6;
+	--secondary-foreground: #1f2937;
+	--accent: #fef3c7;
+	--accent-foreground: #92400e;
+	--ring: #d97706;
+}
+
+.dark {
+	--background: #0a0a0a;
+	--foreground: #fafafa;
+	--card: #1a1a1a;
+	--card-foreground: #fafafa;
+	--muted: #262626;
+	--muted-foreground: #a3a3a3;
+	--border: #262626;
+	--primary: #d97706;
+	--primary-foreground: #ffffff;
+	--secondary: #1f2937;
+	--secondary-foreground: #fafafa;
+	--accent: #92400e;
+	--accent-foreground: #fafafa;
+	--ring: #d97706;
+}
+
+@theme {
+	--color-honey: var(--honey);
+	--color-honey-light: var(--honey-light);
+	--color-honey-dark: var(--honey-dark);
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
+	--color-card: var(--card);
+	--color-card-foreground: var(--card-foreground);
+	--color-muted: var(--muted);
+	--color-muted-foreground: var(--muted-foreground);
+	--color-border: var(--border);
+	--color-primary: var(--primary);
+	--color-primary-foreground: var(--primary-foreground);
+	--color-secondary: var(--secondary);
+	--color-secondary-foreground: var(--secondary-foreground);
+	--color-accent: var(--accent);
+	--color-accent-foreground: var(--accent-foreground);
+	--color-ring: var(--ring);
+	--font-sans: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
+	--font-mono: "Geist Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+* {
+	border-color: var(--border);
+}
+
+body {
+	background-color: var(--background);
+	color: var(--foreground);
+	font-family: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
