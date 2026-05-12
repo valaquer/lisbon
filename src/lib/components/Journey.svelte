@@ -1,6 +1,12 @@
 <script lang="ts">
 	import SofiaProfile from '$lib/assets/Sofia_Profile_Picture.png';
+	import EmmaProfile from '$lib/assets/Emma_Profile_Picture.png';
+	import LunaProfile from '$lib/assets/Luna_Profile_Picture.png';
 	import RavenProfile from '$lib/assets/Raven_Profile_Picture.png';
+	import YukiProfile from '$lib/assets/Yuki_Profile_Picture.png';
+	import ZaraProfile from '$lib/assets/Zara_Profile_Picture.png';
+	import VictoriaProfile from '$lib/assets/Victoria_Profile_Picture.png';
+	import AlexProfile from '$lib/assets/Alex_Profile_Picture.png';
 	import RavenSpicy from '$lib/assets/Raven_Spicy_Picture.png';
 </script>
 
@@ -41,10 +47,10 @@
 									<div class="flex-1 p-3 space-y-2 overflow-hidden">
 										<p class="text-xs text-muted-foreground text-center">Who catches your eye?</p>
 										<div class="grid grid-cols-2 gap-2">
-											<div class="relative rounded-lg overflow-hidden aspect-[3/4] ring-2 ring-honey ring-offset-1 ring-offset-background bg-muted"></div>
-											<div class="relative rounded-lg overflow-hidden aspect-[3/4] bg-muted"></div>
-											<div class="relative rounded-lg overflow-hidden aspect-[3/4] bg-muted"></div>
-											<div class="relative rounded-lg overflow-hidden aspect-[3/4] bg-muted"></div>
+											<div class="relative rounded-lg overflow-hidden aspect-[3/4] ring-2 ring-honey ring-offset-1 ring-offset-background"><img src={SofiaProfile} alt="Sofia" class="w-full h-full object-cover" /></div>
+											<div class="relative rounded-lg overflow-hidden aspect-[3/4]"><img src={EmmaProfile} alt="Emma" class="w-full h-full object-cover" /></div>
+											<div class="relative rounded-lg overflow-hidden aspect-[3/4]"><img src={LunaProfile} alt="Luna" class="w-full h-full object-cover" /></div>
+											<div class="relative rounded-lg overflow-hidden aspect-[3/4]"><img src={RavenProfile} alt="Raven" class="w-full h-full object-cover" /></div>
 										</div>
 									</div>
 								</div>
