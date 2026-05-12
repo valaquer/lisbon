@@ -1,6 +1,6 @@
 # ARCHITECTURE.md — Project Lisbon
 
-Last updated: 2026-05-12 (REQ-003: header + hero, exact match)
+Last updated: 2026-05-12 (REQ-003: header + hero + font fix)
 
 ---
 
@@ -22,7 +22,7 @@ lisbon/
 │       ├── +layout.svelte   # Root layout (imports app.css)
 │       └── +page.svelte     # Landing page (will hold the full clone)
 ├── static/
-│   └── fonts/               # Self-hosted fonts (Inter Tight, Geist Mono woff2)
+│   └── fonts/               # Self-hosted fonts from Google Fonts (Inter Tight, Geist Mono variable woff2)
 ├── src/lib/assets/           # Components assets (Yuki_Profile_Picture.png, logo.webp)
 ├── svelte.config.js         # SvelteKit config (adapter)
 ├── vite.config.ts           # Vite config (SvelteKit + Tailwind plugins)
