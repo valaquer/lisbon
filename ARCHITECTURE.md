@@ -1,6 +1,6 @@
 # ARCHITECTURE.md — Project Lisbon
 
-Last updated: 2026-05-12 (REQ-004: companion cards + features)
+Last updated: 2026-05-12 (REQ-005: full page sections)
 
 ---
 
