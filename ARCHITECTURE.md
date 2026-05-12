@@ -1,6 +1,6 @@
 # ARCHITECTURE.md — Project Lisbon
 
-Last updated: 2026-05-12 (REQ-001: global styles)
+Last updated: 2026-05-12 (REQ-002: header + hero)
 
 ---
 
@@ -13,13 +13,17 @@ lisbon/
 │   ├── app.d.ts             # SvelteKit type declarations
 │   ├── app.html             # HTML shell
 │   ├── lib/
-│   │   ├── assets/          # Static assets imported by components (favicon)
+│   │   ├── assets/          # Static assets imported by components (favicon, logos, profile pics)
+│   │   ├── components/
+│   │   │   ├── Header.svelte # Sticky navbar with logo, nav links, CTA buttons
+│   │   │   └── Hero.svelte   # Hero section with headline, chat preview, waitlist counter
 │   │   └── index.ts         # Lib barrel export
 │   └── routes/
 │       ├── +layout.svelte   # Root layout (imports app.css)
 │       └── +page.svelte     # Landing page (will hold the full clone)
 ├── static/
-│   └── fonts/                # Self-hosted fonts (Inter Tight, Geist Mono woff2)
+│   └── fonts/               # Self-hosted fonts (Inter Tight, Geist Mono woff2)
+├── src/lib/assets/           # Components assets (Yuki_Profile_Picture.png, logo.webp)
 ├── svelte.config.js         # SvelteKit config (adapter)
 ├── vite.config.ts           # Vite config (SvelteKit + Tailwind plugins)
 ├── package.json
@@ -35,7 +39,9 @@ app.html
   └── +layout.svelte (root layout)
         ├── app.css (Tailwind global styles)
         └── +page.svelte (landing page)
-              ├── $lib/components/* (future: header, hero, carousel, FAQ, footer)
+               ├── Header.svelte (sticky navbar)
+│               ├── Hero.svelte (hero section with chat preview)
+│               ├── $lib/components/* (future: carousel, FAQ, footer)
               └── $lib/assets/* (images, fonts)
 
 vite.config.ts
@@ -87,7 +93,9 @@ User submits email form
 | +layout.svelte | Every route | Layout/style changes affect entire site |
 | vite.config.ts | Build pipeline | Build failure, Tailwind stops compiling |
 | svelte.config.js | Deploy target | Deployment breaks if adapter misconfigured |
-| +page.svelte | Nothing (leaf) | Low risk, isolated to landing page content |
+| +page.svelte | Header.svelte, Hero.svelte | Section layout and content changes |
+| Header.svelte | +page.svelte | Navbar visible on every page — breakage affects site navigation |
+| Hero.svelte | +page.svelte | Landing page hero — breakage affects first impression |
 | $lib/components/* (future) | +page.svelte | Scoped to individual sections |
 | static/fonts/* | app.css @font-face declarations | Broken font rendering if paths change |
 | static/* | Direct URL references | Broken images/assets if paths change |
