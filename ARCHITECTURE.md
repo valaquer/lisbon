@@ -1,6 +1,6 @@
 # ARCHITECTURE.md — Project Lisbon
 
-Last updated: 2026-05-12 (REQ-002: header + hero)
+Last updated: 2026-05-12 (REQ-003: header + hero, exact match)
 
 ---
 
