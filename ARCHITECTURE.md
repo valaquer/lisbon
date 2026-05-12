@@ -1,6 +1,6 @@
 # ARCHITECTURE.md — Project Lisbon
 
-Last updated: 2026-05-12 (REQ-003: header + hero + font fix)
+Last updated: 2026-05-12 (REQ-004: companion cards + features)
 
 ---
 
