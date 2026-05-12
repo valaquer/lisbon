@@ -5,10 +5,10 @@
 	let activeTab = $state('Comparisons');
 
 	const categories = [
-		{ name: 'Comparisons', count: 19 },
-		{ name: 'Reviews', count: 6 },
-		{ name: 'Guides', count: 7 },
-		{ name: 'Features', count: 2 }
+		{ name: 'Comparisons', count: 4 },
+		{ name: 'Reviews', count: 1 },
+		{ name: 'Guides', count: 1 },
+		{ name: 'Features', count: 1 }
 	];
 
 	const posts = [
@@ -16,6 +16,9 @@
 		{ cat: 'Comparisons', date: 'April 10, 2026', readTime: '', title: '6 Best SpicyChat Alternatives in 2026 (Deeper AI, Better Experience)', desc: 'Looking for SpicyChat alternatives with better quality, real memory, and deeper connections? Here are the 6 best apps like SpicyChat in 2026 — tested and compared.', tags: ['spicychat alternative', 'spicychat alternatives', 'apps like spicychat'] },
 		{ cat: 'Comparisons', date: '', readTime: '', title: '6 Best Talkie AI Alternatives in 2026 (Deeper Connections & Better Memory)', desc: 'Looking for Talkie AI alternatives with more emotional depth, better memory, and fewer restrictions? Here are the 6 best apps like Talkie in 2026.', tags: ['talkie ai alternative', 'talkie ai alternatives', 'apps like talkie'] },
 		{ cat: 'Comparisons', date: 'April 9, 2026', readTime: '10 min read', title: '8 Best AI Boyfriend Apps in 2026 (Tested & Ranked)', desc: 'Looking for the best AI boyfriend app in 2026? We tested 8 top virtual boyfriend apps — including free options — and ranked them on memory, emotional depth, and conversation quality.', tags: ['ai boyfriend', 'ai boyfriend app', 'best ai boyfriend'] },
+		{ cat: 'Reviews', date: 'April 8, 2026', readTime: '', title: 'JustHoney Review 2026: AI Companion with Real Memory', desc: 'Honest review of JustHoney.ai after 30 days of use. Covers memory quality, emotional depth, media features, privacy, and whether it\'s worth joining the waitlist.', tags: ['justhoney review', 'ai companion review'] },
+		{ cat: 'Guides', date: 'March 28, 2026', readTime: '', title: 'AI Companion vs AI Chatbot — 5 Real Differences (2026)', desc: 'AI companions and AI chatbots are not the same. Memory, emotion, personality, and 2 more differences that decide whether you\'ll still be using it in a month.', tags: ['ai companion vs chatbot'] },
+		{ cat: 'Features', date: 'April 29, 2026', readTime: '', title: 'What Are You Looking For in an AI Companion? 5 Real Reasons People Join', desc: 'Understanding what people actually want from AI companionship — and how we built provoque to deliver on each reason.', tags: ['ai companion', 'ai friendship'] },
 	];
 </script>
 

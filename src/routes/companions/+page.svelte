@@ -27,22 +27,27 @@
 	<section class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
 		<div class="max-w-7xl mx-auto">
 			<div class="text-center mb-12">
-				<h1 class="text-3xl sm:text-5xl lg:text-6xl font-bold mb-4">
-					Meet Your <span class="bg-gradient-to-r from-honey to-honey-light bg-clip-text text-transparent">Perfect</span><br />AI Girlfriend
+				<h1 class="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-4">
+					<span class="text-foreground">Meet Your</span><br />
+					<span class="bg-gradient-to-r from-honey to-honey-light bg-clip-text text-transparent">Perfect</span><br />
+					<span class="text-foreground">AI Girlfriend</span>
 				</h1>
 				<p class="text-lg text-muted-foreground max-w-2xl mx-auto">8 unique AI companions with distinct personalities, emotional intelligence, and long-term memory. Each one remembers everything and grows with you.</p>
 			</div>
 
-			<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-16">
+			<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
 				{#each items as item}
-					<div class="bg-card rounded-xl overflow-hidden border border-border hover:shadow-lg transition-all">
-						<div class="aspect-[3/4] bg-gradient-to-b from-honey/20 to-background flex items-center justify-center p-4">
-							<img src={item.img} alt={item.name} class="w-full h-full object-contain" />
+					<div class="glass-card rounded-xl overflow-hidden hover:border-honey/30 border border-border transition-all group bg-card">
+						<div class="relative aspect-[3/4] overflow-hidden">
+							<img src={item.img} alt={item.name} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+							<div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20"></div>
+							<div class="absolute bottom-0 left-0 right-0 p-4">
+								<h3 class="font-bold text-lg text-white">{item.name}</h3>
+								<p class="text-sm text-honey">{item.tagline}</p>
+							</div>
 						</div>
 						<div class="p-4">
-							<h3 class="font-bold text-lg mb-1">{item.name}</h3>
-							<p class="text-sm text-honey mb-2">{item.tagline}</p>
-							<p class="text-sm text-muted-foreground">{item.desc}</p>
+							<p class="text-sm text-muted-foreground line-clamp-2">{item.desc}</p>
 						</div>
 					</div>
 				{/each}
