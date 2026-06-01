@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { PUBLIC_TURNSTILE_SITE_KEY } from '$env/static/public';
 
 	let email = $state('');
@@ -7,20 +8,46 @@
 	let message = $state('');
 	let isError = $state(false);
 	let turnstileToken = $state('');
+	let turnstileEl: HTMLDivElement;
+	let turnstileWidgetId: string | undefined;
 
-	function onTurnstileCallback(token: string) {
-		turnstileToken = token;
-	}
+	onMount(() => {
+		// Render Turnstile explicitly after Svelte hydrates
+		function renderTurnstile() {
+			if ((window as any).turnstile && turnstileEl) {
+				turnstileWidgetId = (window as any).turnstile.render(turnstileEl, {
+					sitekey: PUBLIC_TURNSTILE_SITE_KEY,
+					theme: 'dark',
+					callback: (token: string) => {
+						turnstileToken = token;
+					}
+				});
+			}
+		}
 
-	// Expose callback globally for Turnstile
-	if (typeof window !== 'undefined') {
-		(window as any).onTurnstileCallback = onTurnstileCallback;
-	}
+		// Turnstile script may already be loaded or still loading
+		if ((window as any).turnstile) {
+			renderTurnstile();
+		} else {
+			// Wait for Turnstile script to load
+			const check = setInterval(() => {
+				if ((window as any).turnstile) {
+					clearInterval(check);
+					renderTurnstile();
+				}
+			}, 100);
+			// Clean up after 10s
+			setTimeout(() => clearInterval(check), 10000);
+		}
+	});
 
 	async function handleSubmit(e: SubmitEvent) {
 		e.preventDefault();
 		submitting = true;
 		message = '';
+
+		// Get token directly from widget as safety net
+		const token = turnstileToken || ((window as any).turnstile?.getResponse(turnstileWidgetId) ?? '');
 
 		try {
 			const res = await fetch('/api/signup', {
@@ -30,7 +57,7 @@
 					email,
 					consent_flag: consent,
 					honeypot: (document.getElementById('website') as HTMLInputElement)?.value || '',
-					turnstile_token: turnstileToken
+					turnstile_token: token
 				})
 			});
 
@@ -50,9 +77,10 @@
 			isError = true;
 		} finally {
 			submitting = false;
-			// Reset Turnstile
-			if (typeof window !== 'undefined' && (window as any).turnstile) {
-				(window as any).turnstile.reset();
+			// Reset Turnstile for next submission
+			if ((window as any).turnstile && turnstileWidgetId !== undefined) {
+				(window as any).turnstile.reset(turnstileWidgetId);
+				turnstileToken = '';
 			}
 		}
 	}
@@ -87,13 +115,8 @@
 				<span>I agree to the <a href="/privacy" class="link">privacy policy</a> and consent to receiving emails.</span>
 			</label>
 
-			<!-- Turnstile widget -->
-			<div
-				class="cf-turnstile"
-				data-sitekey={PUBLIC_TURNSTILE_SITE_KEY}
-				data-callback="onTurnstileCallback"
-				data-theme="dark"
-			></div>
+			<!-- Turnstile widget (explicit render via onMount) -->
+			<div bind:this={turnstileEl}></div>
 
 			<button type="submit" disabled={submitting} class="button">
 				{submitting ? 'Signing up...' : 'Join Waitlist'}
