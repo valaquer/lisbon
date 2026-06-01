@@ -1,21 +1,25 @@
-<script lang="ts">
-	import Header from '$lib/components/Header.svelte';
-	import Hero from '$lib/components/Hero.svelte';
-	import Companions from '$lib/components/Companions.svelte';
-	import Details from '$lib/components/Details.svelte';
-	import Journey from '$lib/components/Journey.svelte';
-	import MoreFeatures from '$lib/components/MoreFeatures.svelte';
-	import FAQ from '$lib/components/FAQ.svelte';
-	import Footer from '$lib/components/Footer.svelte';
-</script>
+<svelte:head>
+	<title>Provoque AI</title>
+</svelte:head>
 
-<Header />
-<main>
-	<Hero />
-	<Companions />
-	<Journey />
-	<Details />
-	<MoreFeatures />
-	<FAQ />
-</main>
-<Footer />
+<div class="screen">
+	<h1>Provoque AI</h1>
+</div>
+
+<style>
+	.screen {
+		min-height: 100vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: #000;
+	}
+
+	h1 {
+		color: #fff;
+		font-family: system-ui, sans-serif;
+		font-size: 2rem;
+		font-weight: 300;
+		letter-spacing: 0.05em;
+	}
+</style>
