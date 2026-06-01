@@ -18,6 +18,7 @@
 				turnstileWidgetId = (window as any).turnstile.render(turnstileEl, {
 					sitekey: PUBLIC_TURNSTILE_SITE_KEY,
 					theme: 'dark',
+					appearance: 'interaction-only',
 					callback: (token: string) => {
 						turnstileToken = token;
 					}
