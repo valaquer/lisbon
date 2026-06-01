@@ -65,7 +65,7 @@
 			const data = await res.json();
 
 			if (data.success) {
-				message = 'Thanks for signing up! Check your inbox to confirm.';
+				message = "You're on the list!";
 				isError = false;
 				email = '';
 				consent = false;
