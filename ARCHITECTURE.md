@@ -1,6 +1,6 @@
 # ARCHITECTURE.md — Project Lisbon
 
-Last updated: 2026-06-01 (Daksh — REQ-006 Supabase waitlist table + RLS)
+Last updated: 2026-06-01 (Daksh — REQ-007 form endpoint)
 
 ---
 
@@ -11,40 +11,20 @@ lisbon/
 ├── src/
 │   ├── app.css              # Global styles (Tailwind v4 import, @font-face, CSS custom properties, light/dark themes, @theme registration)
 │   ├── app.d.ts             # SvelteKit type declarations
-│   ├── app.html             # HTML shell
+│   ├── app.html             # HTML shell + Turnstile script tag (REQ-007)
 │   ├── lib/
 │   │   ├── assets/
-│   │   │   ├── favicon.svg
-│   │   │   ├── logo.webp
-│   │   │   ├── Alex_Profile_Picture.png
-│   │   │   ├── Emma_Profile_Picture.png
-│   │   │   ├── Luna_Profile_Picture.png
-│   │   │   ├── Raven_Profile_Picture.png
-│   │   │   ├── Raven_Spicy_Picture.png
-│   │   │   ├── Sofia_Profile_Picture.png
-│   │   │   ├── Sofia_Spicy_Picture.png
-│   │   │   ├── Victoria_Profile_Picture.png
-│   │   │   ├── Yuki_Profile_Picture.png
-│   │   │   └── Zara_Profile_Picture.png
-│   │   ├── components/
-│   │   │   ├── Header.svelte       # Sticky navbar — logo, nav links (How it works, Features, FAQ, Companions, Blog), Discord CTA, Join Waitlist
-│   │   │   ├── Hero.svelte         # Hero section — headline, chat preview, waitlist counter
-│   │   │   ├── Companions.svelte   # Features bar + Founding Member card
-│   │   │   ├── Journey.svelte      # "Your journey to connection" — 3-step section
-│   │   │   ├── Details.svelte      # Core features — Unmatched Memory, Emotional Depth, Beyond Text
-│   │   │   ├── MoreFeatures.svelte # "And so much more..." — 6-card grid
-│   │   │   ├── FAQ.svelte          # 6 accordion questions/answers
-│   │   │   └── Footer.svelte       # Site footer — branding, nav links, social icons, legal links, copyright
+│   │   │   └── favicon.svg
+│   │   ├── server/
+│   │   │   └── supabase.ts        # Supabase client factory — anon key, Prefer: return=minimal (REQ-007)
 │   │   └── index.ts            # Lib barrel export
 │   └── routes/
-│       ├── +layout.svelte      # Root layout — imports app.css, renders favicon
-│       ├── +page.svelte        # Landing page — composes all 8 components
-│       ├── blog/
-│       │   └── +page.svelte    # Blog index — category tabs (4), 7 post cards, CTA
-│       └── companions/
-│           ├── +page.svelte    # Companions index — 8 profile cards, 3 features, comparison table, 4 FAQ, CTA
-│           └── raven/
-│               └── +page.svelte # Raven profile — breadcrumbs, profile image, personality/interests tags, 2 info cards, 3 feature cards, 7-companion gallery
+│       ├── +layout.svelte      # Root layout — imports app.css
+│       ├── +page.svelte        # Landing page — email signup form (REQ-007)
+│       ├── +page.ts            # Page config — prerender=true (REQ-007)
+│       └── api/
+│           └── signup/
+│               └── +server.ts  # POST handler — validate, Turnstile, honeypot, Supabase INSERT (REQ-007)
 ├── static/
 │   └── fonts/
 │       ├── inter-tight-variable.woff2   # Google Fonts — Inter Tight variable
@@ -54,7 +34,7 @@ lisbon/
 │   ├── .gitignore                                     # Supabase-generated ignores
 │   └── migrations/
 │       └── 20260601000000_create_waitlist.sql          # REQ-006: waitlist table + RLS policies
-├── svelte.config.js        # SvelteKit config — @sveltejs/adapter-vercel (nodejs22.x)
+├── svelte.config.js        # SvelteKit config — adapter-vercel (nodejs22.x), prerender /privacy handler (REQ-007)
 ├── vite.config.ts          # Vite config — SvelteKit + @tailwindcss/vite plugins
 ├── package.json
 └── tsconfig.json
@@ -65,50 +45,30 @@ lisbon/
 ## Dependency Graph
 
 ```
-app.html
+app.html (Turnstile script)
   └── +layout.svelte (root layout)
-        ├── app.css (Tailwind v4 global styles, theme, fonts)
+        ├── app.css (Tailwind v4 global styles)
         ├── $lib/assets/favicon.svg
         │
-        ├── routes/+page.svelte (landing page)
-        │     ├── Header.svelte ── $lib/assets/logo.webp
-        │     ├── Hero.svelte
-        │     ├── Companions.svelte
-        │     ├── Journey.svelte
-        │     ├── Details.svelte
-        │     ├── MoreFeatures.svelte
-        │     ├── FAQ.svelte
-        │     └── Footer.svelte
-        │
-        ├── routes/blog/+page.svelte
-        │     ├── Header.svelte
-        │     └── Footer.svelte
-        │
-        ├── routes/companions/+page.svelte
-        │     ├── Header.svelte
-        │     ├── Footer.svelte
-        │     └── $lib/assets/*_Profile_Picture.png (all 8)
-        │
-        └── routes/companions/raven/+page.svelte
-              ├── Header.svelte
-              ├── Footer.svelte
-              ├── $lib/assets/Raven_Profile_Picture.png
-              └── $lib/assets/*_Profile_Picture.png (7 others for gallery)
-
-Shared across all routes: Header.svelte, Footer.svelte
-Landing page only: Hero, Companions, Journey, Details, MoreFeatures, FAQ
+        └── routes/+page.svelte (landing page — signup form)
+              ├── +page.ts (prerender=true)
+              └── fetch('/api/signup') on submit
+                    └── routes/api/signup/+server.ts (POST handler)
+                          ├── Cloudflare Turnstile API (server-side token verification)
+                          └── $lib/server/supabase.ts (anon key client)
+                                └── Supabase (wsfpdmdoobvanjewyhkl.supabase.co)
 ```
 
 **External dependencies:**
 - Supabase (Frankfurt, eu-central-1) — waitlist table live (REQ-006). Linked via CLI (`supabase link --project-ref wsfpdmdoobvanjewyhkl`)
-- Supabase JS client (future REQ-007) — server-side only, form action INSERT via anon key
+- Supabase JS client (`@supabase/supabase-js`, REQ-007) — server-side only, API route INSERT via anon key
 - Resend SDK (future REQ-009) — server-side only, confirmation emails via service role key
 
 ---
 
 ## Data Flow
 
-Current state: Supabase waitlist table live with RLS. No SvelteKit data flow yet — all frontend content is hardcoded in Svelte components.
+Current state: Email signup form live (REQ-007). Page prerendered. Form POST hits API route → Supabase INSERT.
 
 **Supabase waitlist table (REQ-006):**
 ```
@@ -131,16 +91,24 @@ Note: INSERT via PostgREST must use Prefer: return=minimal (not return=represent
       because anon has no SELECT permission for RETURNING clause.
 ```
 
-**Target state (Phase 4):**
+**Current data flow (REQ-007):**
 ```
-User submits email form
-  -> SvelteKit form action (+page.server.ts)
-    -> Validate email + consent checkbox
-    -> INSERT into Supabase waitlist table (email, consent, timestamp)
-    -> Call Resend API to send confirmation email
-    -> Return success/error to client
-  -> Client shows toast notification
-  -> Waitlist counter reads from Supabase (count query)
+User submits signup form (+page.svelte)
+  -> fetch POST /api/signup (JSON body: email, consent_flag, honeypot, turnstile_token)
+    -> Honeypot check (filled = silent success, reject bot)
+    -> Consent check (must be true)
+    -> Email validation (regex + length <= 320)
+    -> Turnstile server-side verification (POST to Cloudflare siteverify)
+    -> Supabase INSERT via anon key (Prefer: return=minimal)
+      -> Duplicate email (23505) -> "Already signed up"
+    -> Return JSON { success: true } or { error: "message" }
+  -> Client displays success/error message
+```
+
+**Remaining Phase 4 flow (future REQs):**
+```
+  -> Call Resend API to send confirmation email (REQ-009)
+  -> User clicks verify link -> verify endpoint updates status (REQ-008)
 ```
 
 ---
@@ -154,12 +122,12 @@ User submits email form
 | Header.svelte | All 4 routes import it | Navbar breakage site-wide — navigation, logo, CTA |
 | Footer.svelte | All 4 routes import it | Footer breakage site-wide — legal links, social, copyright |
 | vite.config.ts | Build pipeline | Build failure, Tailwind stops compiling |
-| svelte.config.js | Deploy target | Deployment breaks if adapter misconfigured |
-| +page.svelte (landing) | Imports all 8 section components | Section layout changes affect landing page only |
-| blog/+page.svelte | Self-contained | Blog page only — no shared state |
-| companions/+page.svelte | Imports all 8 profile images | Companion grid — image path changes break cards |
-| companions/raven/+page.svelte | Imports 8 profile images | Raven profile + gallery — image path changes break gallery |
-| $lib/assets/*_Profile_Picture.png | companions/+page, companions/raven/+page | Broken images on companion pages if renamed/moved |
+| svelte.config.js | Deploy target + prerender config | Deployment breaks if adapter misconfigured. Prerender /privacy handler (REQ-007) |
+| +page.svelte (landing) | Signup form UI | Form breakage, user can't sign up |
+| +page.ts | Prerender config | If removed, page becomes server-rendered (performance impact at scale) |
+| api/signup/+server.ts | Form submissions | Signup breaks entirely. Depends on: supabase.ts, Turnstile API, env vars |
+| src/lib/server/supabase.ts | api/signup/+server.ts | All Supabase operations break. Depends on: PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY |
+| app.html (Turnstile script) | All routes load script | Turnstile widget rendering. Removal breaks CAPTCHA on signup form |
 | static/fonts/* | app.css @font-face declarations | Broken font rendering across all routes |
 | supabase/migrations/* | Remote Supabase DB (via `supabase db push`) | Migration changes require re-push; destructive changes (DROP) lose data |
 | supabase/config.toml | Supabase CLI link + push | Wrong project ref = push to wrong DB |
