@@ -7,12 +7,7 @@ const config = {
 	},
 	kit: {
 		adapter: adapter({ runtime: 'nodejs22.x' }),
-		prerender: {
-			handleHttpError: ({ path }) => {
-				// /privacy page is a future REQ — suppress prerender 404 until it exists
-				if (path === '/privacy') return;
-			}
-		}
+		prerender: {}
 	}
 };
 
