@@ -1,6 +1,6 @@
 # ARCHITECTURE.md — Project Lisbon
 
-Last updated: 2026-06-01 (Daksh — REQ-007 form endpoint)
+Last updated: 2026-06-02 (Ines — REQ-009 Resend integration)
 
 ---
 
@@ -16,15 +16,19 @@ lisbon/
 │   │   ├── assets/
 │   │   │   └── favicon.svg
 │   │   ├── server/
-│   │   │   └── supabase.ts        # Supabase client factory — anon key, Prefer: return=minimal (REQ-007)
+│   │   │   ├── supabase.ts        # Supabase clients — anon (INSERT) + service role via getSupabaseAdmin() (SELECT/UPDATE) (REQ-007, REQ-008)
+│   │   │   └── resend.ts          # Resend client — sendVerificationEmail(email, token), hello@provoque.ai (REQ-009)
 │   │   └── index.ts            # Lib barrel export
 │   └── routes/
 │       ├── +layout.svelte      # Root layout — imports app.css
-│       ├── +page.svelte        # Landing page — email signup form (REQ-007)
+│       ├── +page.svelte        # Landing page — email signup form, differentiated success message (REQ-007, REQ-009)
 │       ├── +page.ts            # Page config — prerender=true (REQ-007)
+│       ├── verify/
+│       │   ├── +page.server.ts # Server load — token lookup, 48h expiry, status flip, token nullification (REQ-008)
+│       │   └── +page.svelte    # Verify confirmation page — success/error/expired (REQ-008)
 │       └── api/
 │           └── signup/
-│               └── +server.ts  # POST handler — validate, Turnstile, honeypot, Supabase INSERT (REQ-007)
+│               └── +server.ts  # POST handler — validate, Turnstile, honeypot, Supabase INSERT, app-generated token, Resend email, resend_status update (REQ-007, REQ-009)
 ├── static/
 │   └── fonts/
 │       ├── inter-tight-variable.woff2   # Google Fonts — Inter Tight variable
@@ -50,19 +54,23 @@ app.html (Turnstile script)
         ├── app.css (Tailwind v4 global styles)
         ├── $lib/assets/favicon.svg
         │
-        └── routes/+page.svelte (landing page — signup form)
-              ├── +page.ts (prerender=true)
-              └── fetch('/api/signup') on submit
-                    └── routes/api/signup/+server.ts (POST handler)
-                          ├── Cloudflare Turnstile API (server-side token verification)
-                          └── $lib/server/supabase.ts (anon key client)
-                                └── Supabase (wsfpdmdoobvanjewyhkl.supabase.co)
+        ├── routes/+page.svelte (landing page — signup form)
+        │     ├── +page.ts (prerender=true)
+        │     └── fetch('/api/signup') on submit
+        │           └── routes/api/signup/+server.ts (POST handler)
+        │                 ├── Cloudflare Turnstile API (server-side token verification)
+        │                 └── $lib/server/supabase.ts (anon key client)
+        │                       └── Supabase INSERT (waitlist table)
+        │
+        └── routes/verify/+page.server.ts (verify endpoint — REQ-008)
+              └── $lib/server/supabase.ts (service role client via getSupabaseAdmin())
+                    └── Supabase SELECT + UPDATE (waitlist table)
 ```
 
 **External dependencies:**
 - Supabase (Frankfurt, eu-central-1) — waitlist table live (REQ-006). Linked via CLI (`supabase link --project-ref wsfpdmdoobvanjewyhkl`)
-- Supabase JS client (`@supabase/supabase-js`, REQ-007) — server-side only, API route INSERT via anon key
-- Resend SDK (future REQ-009) — server-side only, confirmation emails via service role key
+- Supabase JS client (`@supabase/supabase-js`, REQ-007/008/009) — server-side only. Anon client for INSERT, service role client for SELECT/UPDATE (verify + resend_status)
+- Resend SDK (`resend`, REQ-009) — server-side only, confirmation emails from hello@provoque.ai
 
 ---
 
@@ -99,16 +107,31 @@ User submits signup form (+page.svelte)
     -> Consent check (must be true)
     -> Email validation (regex + length <= 320)
     -> Turnstile server-side verification (POST to Cloudflare siteverify)
-    -> Supabase INSERT via anon key (Prefer: return=minimal)
+    -> Supabase INSERT via anon key with app-generated verification_token (Prefer: return=minimal)
       -> Duplicate email (23505) -> "Already signed up"
-    -> Return JSON { success: true } or { error: "message" }
-  -> Client displays success/error message
+    -> Send confirmation email via Resend (decoupled — D9)
+      -> Success: update resend_status='sent' via service role
+      -> Failure: update resend_status='failed' via service role
+    -> Return JSON { success: true, emailSent: boolean }
+  -> Client displays "Check your email to confirm" (email sent) or "You're on the list!" (email failed)
 ```
 
-**Remaining Phase 4 flow (future REQs):**
+**Verify flow (REQ-008):**
 ```
-  -> Call Resend API to send confirmation email (REQ-009)
-  -> User clicks verify link -> verify endpoint updates status (REQ-008)
+User clicks verify link in email (or manual URL)
+  -> GET /verify?token=<uuid> (+page.server.ts load function)
+    -> getSupabaseAdmin() — service role client (bypasses RLS)
+    -> SELECT from waitlist WHERE verification_token = token
+    -> If not found -> "Invalid or expired verification link."
+    -> If status = 'confirmed' -> "Already confirmed." (dead code — token nullified on confirm)
+    -> If created_at > 48 hours ago -> "Expired."
+    -> UPDATE status='confirmed', verification_token=NULL
+    -> "Your email has been confirmed. Welcome to Provoque."
+```
+
+**Remaining Phase 4 flow:**
+```
+  -> REQ-010: Privacy policy page at /privacy
 ```
 
 ---
@@ -126,7 +149,8 @@ User submits signup form (+page.svelte)
 | +page.svelte (landing) | Signup form UI | Form breakage, user can't sign up |
 | +page.ts | Prerender config | If removed, page becomes server-rendered (performance impact at scale) |
 | api/signup/+server.ts | Form submissions | Signup breaks entirely. Depends on: supabase.ts, Turnstile API, env vars |
-| src/lib/server/supabase.ts | api/signup/+server.ts | All Supabase operations break. Depends on: PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY |
+| verify/+page.server.ts | Email verification | Verify link breaks. Depends on: supabase.ts (service role), SUPABASE_SERVICE_ROLE_KEY |
+| src/lib/server/supabase.ts | api/signup/+server.ts, verify/+page.server.ts | All Supabase operations break. Anon client: PUBLIC_SUPABASE_URL + PUBLIC_SUPABASE_ANON_KEY. Service role: SUPABASE_SERVICE_ROLE_KEY |
 | app.html (Turnstile script) | All routes load script | Turnstile widget rendering. Removal breaks CAPTCHA on signup form |
 | static/fonts/* | app.css @font-face declarations | Broken font rendering across all routes |
 | supabase/migrations/* | Remote Supabase DB (via `supabase db push`) | Migration changes require re-push; destructive changes (DROP) lose data |
