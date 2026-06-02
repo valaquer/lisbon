@@ -1,6 +1,8 @@
 import { json } from '@sveltejs/kit';
 import { env } from '$env/dynamic/private';
 import { supabase } from '$lib/server/supabase';
+import { getSupabaseAdmin } from '$lib/server/supabase';
+import { sendVerificationEmail } from '$lib/server/resend';
 import type { RequestHandler } from './$types';
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -51,10 +53,14 @@ export const POST: RequestHandler = async ({ request }) => {
 		return json({ error: 'Verification failed. Please try again.' }, { status: 400 });
 	}
 
+	// Generate verification token in app code
+	const verificationToken = crypto.randomUUID();
+
 	// Supabase INSERT
 	const { error } = await supabase.from('waitlist').insert({
 		email,
-		consent_flag: true
+		consent_flag: true,
+		verification_token: verificationToken
 	});
 
 	if (error) {
@@ -65,5 +71,15 @@ export const POST: RequestHandler = async ({ request }) => {
 		return json({ error: 'Something went wrong. Please try again.' }, { status: 500 });
 	}
 
-	return json({ success: true });
+	// Send confirmation email (decoupled from INSERT — D9)
+	let emailSent = false;
+	try {
+		await sendVerificationEmail(email, verificationToken);
+		emailSent = true;
+		await getSupabaseAdmin().from('waitlist').update({ resend_status: 'sent' }).eq('email', email);
+	} catch {
+		await getSupabaseAdmin().from('waitlist').update({ resend_status: 'failed' }).eq('email', email);
+	}
+
+	return json({ success: true, emailSent });
 };

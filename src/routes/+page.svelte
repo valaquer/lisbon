@@ -65,7 +65,9 @@
 			const data = await res.json();
 
 			if (data.success) {
-				message = "You're on the list!";
+				message = data.emailSent
+					? 'Check your email to confirm.'
+					: "You're on the list! We'll be in touch.";
 				isError = false;
 				email = '';
 				consent = false;
