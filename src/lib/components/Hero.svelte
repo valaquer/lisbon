@@ -1,1 +1,3 @@
-<div class="border border-white/10 p-8 text-center text-text/50 font-inter min-h-[80vh] flex items-center justify-center">Hero</div>
+<div class="bg-bg h-[calc(100vh-64px)] flex items-center justify-center border border-white/10 text-text/50 font-inter">
+	Hero — calc(100vh - 64px)
+</div>
