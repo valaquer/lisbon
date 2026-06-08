@@ -23,15 +23,17 @@
 <Hero />
 
 <!-- Block 3: Promise Cards -->
-{#each promiseCards as card, i}
-	<PromiseCard
-		heading={card.heading}
-		body={card.body}
-		image={card.image}
-		rotation={card.rotation}
-		reverse={i % 2 !== 0}
-	/>
-{/each}
+<div style="max-width: 1120px; margin: 0 auto; padding: 48px clamp(24px, 4vw, 48px);">
+	{#each promiseCards as card, i}
+		<PromiseCard
+			heading={card.heading}
+			body={card.body}
+			image={card.image}
+			rotation={card.rotation}
+			reverse={i % 2 !== 0}
+		/>
+	{/each}
+</div>
 
 <!-- Block 4: Sophie Chat Vignette -->
 <ChatVignette
