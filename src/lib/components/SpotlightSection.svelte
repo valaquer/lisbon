@@ -35,13 +35,17 @@
 					start: 'top top',
 					end: '+=400%',
 					scrub: 1.5,
-					onUpdate: (self) => {
+	
+				onUpdate: (self) => {
+						// Handle reverse scroll label sync
 						const p = self.progress;
-						// Timeline: dwell(0.8) + slide(1) + dwell(0.8) + slide(1) + dwell(0.8) = 4.4
-						// Transition midpoints: first slide center at 1.3/4.4=0.30, second at 3.1/4.4=0.70
-						if (p < 0.30) activeLabel = 0;
-						else if (p < 0.70) activeLabel = 1;
-						else activeLabel = 2;
+						if (self.direction === -1) {
+							// Scrolling up — labels need to reverse
+							// Total: dwell(0.8) + slide(1) + dwell(0.8) + slide(1) + dwell(0.8) = 4.4
+							if (p < 0.18) activeLabel = 0;      // Before first transition
+							else if (p < 0.59) activeLabel = 1;  // Between transitions
+							else activeLabel = 2;
+						}
 					}
 				}
 			});
@@ -50,14 +54,16 @@
 			tl.to({}, { duration: 0.8 });
 
 			// Segment 2: Fantasy slides left + fades, Friend slides in
-			tl.to(photos[0], { x: -40, opacity: 0, duration: 1, ease: 'power2.inOut' }, '>')
+			tl.call(() => { activeLabel = 1; })
+			  .to(photos[0], { x: -40, opacity: 0, duration: 1, ease: 'power2.inOut' }, '<')
 			  .to(photos[1], { x: 0, opacity: 1, duration: 1, ease: 'power2.inOut' }, '<');
 
 			// Segment 3: Dwell on Friend
 			tl.to({}, { duration: 0.8 });
 
 			// Segment 4: Friend slides left, Lover slides in
-			tl.to(photos[1], { x: -40, opacity: 0, duration: 1, ease: 'power2.inOut' }, '>')
+			tl.call(() => { activeLabel = 2; })
+			  .to(photos[1], { x: -40, opacity: 0, duration: 1, ease: 'power2.inOut' }, '<')
 			  .to(photos[2], { x: 0, opacity: 1, duration: 1, ease: 'power2.inOut' }, '<');
 
 			// Segment 5: Dwell on Lover, then unpin
@@ -105,6 +111,12 @@
 						<img src={photo} alt="{girl.name} — {girl.labels[i]}" loading="lazy" />
 					</div>
 				{/each}
+			<!-- Mobile: labels overlaid on photo -->
+				<div class="mobile-labels md:hidden">
+					{#each girl.labels as label, i}
+						<span class="label" class:active={i === activeLabel}>{label}</span>
+					{/each}
+				</div>
 			</div>
 
 			<!-- Right: Text panel -->
@@ -189,8 +201,14 @@
 	}
 
 	.label-row {
-		display: flex;
-		gap: 20px;
+		display: none;
+	}
+
+	@media (min-width: 769px) {
+		.label-row {
+			display: flex;
+			gap: 20px;
+		}
 	}
 
 	.label {
@@ -203,6 +221,21 @@
 
 	.label.active {
 		opacity: 0.8;
+	}
+
+	.mobile-labels {
+		position: absolute;
+		bottom: 16px;
+		left: 0;
+		right: 0;
+		display: flex;
+		justify-content: center;
+		gap: 24px;
+		z-index: 2;
+	}
+	.mobile-labels .label {
+		font-size: 16px;
+		text-shadow: 0 1px 4px rgba(0,0,0,0.6);
 	}
 
 	@media (max-width: 768px) {
