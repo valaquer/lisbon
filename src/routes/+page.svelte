@@ -2,14 +2,12 @@
 	import Nav from '$lib/components/Nav.svelte';
 	import Hero from '$lib/components/Hero.svelte';
 	import PromiseCard from '$lib/components/PromiseCard.svelte';
-	import ChatVignette from '$lib/components/ChatVignette.svelte';
 	import TrustBar from '$lib/components/TrustBar.svelte';
 	import RosterGrid from '$lib/components/RosterGrid.svelte';
 	import SpotlightSection from '$lib/components/SpotlightSection.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 
 	import { promiseCards } from '$lib/data/promise-cards';
-	import { hinaMessages } from '$lib/data/conversations';
 	import { rosterGirls } from '$lib/data/roster';
 	import { spotlightGirls } from '$lib/data/spotlight';
 
@@ -62,14 +60,5 @@
 	<SpotlightSection {girl} />
 {/each}
 
-<!-- Block 10: Hina Chat Vignette -->
-<ChatVignette
-	mode="desktop"
-	name="Hina"
-	avatar="/hina-agh-face.jpg"
-	messages={hinaMessages}
-	placeholder="Message Hina..."
-/>
-
-<!-- Block 11: Footer + CTA + Watermark -->
+<!-- Block 10: Footer + CTA + Watermark -->
 <Footer />
