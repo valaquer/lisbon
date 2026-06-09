@@ -38,10 +38,16 @@
 <!-- Block 4: Trust Bar -->
 <TrustBar />
 
-<!-- Block 5: Roster Grid -->
+<!-- Block 5: Chapter Header -->
+<div style="text-align: center; padding: 80px clamp(24px, 4vw, 48px);">
+	<h2 style="font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(36px, 4vw, 56px); color: #E8E4DF;">No Walls.<br class="md:hidden" /> No Apologies.</h2>
+	<p style="font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 400; font-size: clamp(18px, 2vw, 24px); color: #E8E4DF; opacity: 0.8; margin-top: 16px; line-height: 1.7;">Different faces. Different stories.<br class="md:hidden" /> No content filters between you and any of them.</p>
+</div>
+
+<!-- Block 6: Roster Grid -->
 <RosterGrid girls={rosterGirls} />
 
-<!-- Block 6: Hina Chat Vignette -->
+<!-- Block 7: Hina Chat Vignette -->
 <ChatVignette
 	mode="desktop"
 	name="Hina"
@@ -50,5 +56,5 @@
 	placeholder="Message Hina..."
 />
 
-<!-- Block 7: Footer + CTA + Watermark -->
+<!-- Block 8: Footer + CTA + Watermark -->
 <Footer />
