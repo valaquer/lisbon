@@ -5,11 +5,21 @@
 	import ChatVignette from '$lib/components/ChatVignette.svelte';
 	import TrustBar from '$lib/components/TrustBar.svelte';
 	import RosterGrid from '$lib/components/RosterGrid.svelte';
+	import SpotlightSection from '$lib/components/SpotlightSection.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 
 	import { promiseCards } from '$lib/data/promise-cards';
 	import { hinaMessages } from '$lib/data/conversations';
 	import { rosterGirls } from '$lib/data/roster';
+	import { spotlightGirls } from '$lib/data/spotlight';
+
+	import { onMount } from 'svelte';
+	import gsap from 'gsap';
+	import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+	onMount(() => {
+		gsap.registerPlugin(ScrollTrigger);
+	});
 </script>
 
 <svelte:head>
@@ -47,7 +57,12 @@
 <!-- Block 6: Roster Grid -->
 <RosterGrid girls={rosterGirls} />
 
-<!-- Block 7: Hina Chat Vignette -->
+<!-- Blocks 7-9: Spotlight Sections -->
+{#each spotlightGirls as girl}
+	<SpotlightSection {girl} />
+{/each}
+
+<!-- Block 10: Hina Chat Vignette -->
 <ChatVignette
 	mode="desktop"
 	name="Hina"
@@ -56,5 +71,5 @@
 	placeholder="Message Hina..."
 />
 
-<!-- Block 8: Footer + CTA + Watermark -->
+<!-- Block 11: Footer + CTA + Watermark -->
 <Footer />
