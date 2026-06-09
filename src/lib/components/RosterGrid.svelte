@@ -9,6 +9,11 @@
 
 	// Mobile roster: 6 rows × 4 cols = 24 cards, tiling 16 girls
 	const mobileRoster = Array.from({ length: 24 }, (_, i) => girls[i % girls.length]);
+
+	let expandedCard = $state<number | null>(null);
+	function toggleCard(idx: number) {
+		expandedCard = expandedCard === idx ? null : idx;
+	}
 </script>
 
 <!-- Desktop Roster Grid (6 columns with 1/4 wing clip) -->
@@ -169,8 +174,10 @@
 		<!-- Rows 2-5 (full cards) -->
 		{#each Array(4) as _, rowIdx}
 		<div style="display: flex; gap: 10px;">
-		{#each mobileRoster.slice((rowIdx + 1) * 4, (rowIdx + 2) * 4) as girl}
-			<div style="width: 150px; flex-shrink: 0; aspect-ratio: 9/16; border-radius: 16px; overflow: hidden; background: {girl.bg}; position: relative;">
+		{#each mobileRoster.slice((rowIdx + 1) * 4, (rowIdx + 2) * 4) as girl, i}
+			<!-- svelte-ignore a11y_click_events_have_key_events -->
+			<!-- svelte-ignore a11y_no_static_element_interactions -->
+			<div class="mobile-card" class:expanded={expandedCard === (rowIdx + 1) * 4 + i} onclick={() => toggleCard((rowIdx + 1) * 4 + i)} style="width: 150px; flex-shrink: 0; aspect-ratio: 9/16; border-radius: 16px; overflow: hidden; background: {girl.bg}; position: relative; cursor: pointer;">
 				{#if girl.img}<img src={girl.img} alt={girl.name} style="width: 102%; height: 102%; object-fit: cover; position: absolute; top: -1%; left: -1%;" />{/if}
 				<div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 10px 10px 8px; background: linear-gradient(transparent, rgba(0,0,0,0.4));">
 					<div style="display: flex; align-items: center; gap: 4px; margin-bottom: 2px;">
@@ -212,8 +219,20 @@
 	.roster-card img {
 		transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
 	}
-	.roster-card:hover img {
-		transform: scale(1.05);
+	@media (hover: hover) {
+		.roster-card:hover img {
+			transform: scale(1.05);
+			transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+		}
+	}
+
+	/* Mobile tap-to-expand — floats above grid */
+	.mobile-card {
+		transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+	}
+	.mobile-card.expanded {
+		transform: scale(1.7);
+		z-index: 10;
 		transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
 	}
 </style>
