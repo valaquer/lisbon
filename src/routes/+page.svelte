@@ -8,7 +8,7 @@
 	import Footer from '$lib/components/Footer.svelte';
 
 	import { promiseCards } from '$lib/data/promise-cards';
-	import { averyMessages, hinaMessages } from '$lib/data/conversations';
+	import { hinaMessages } from '$lib/data/conversations';
 	import { rosterGirls } from '$lib/data/roster';
 </script>
 
@@ -38,19 +38,10 @@
 <!-- Block 4: Trust Bar -->
 <TrustBar />
 
-<!-- Block 5: Avery Chat Vignette -->
-<ChatVignette
-	mode="phone"
-	name="Avery"
-	avatar="/avery-adx-face.jpg"
-	messages={averyMessages}
-	placeholder="Message Avery..."
-/>
-
-<!-- Block 6: Roster Grid -->
+<!-- Block 5: Roster Grid -->
 <RosterGrid girls={rosterGirls} />
 
-<!-- Block 7: Hina Chat Vignette -->
+<!-- Block 6: Hina Chat Vignette -->
 <ChatVignette
 	mode="desktop"
 	name="Hina"
@@ -59,5 +50,5 @@
 	placeholder="Message Hina..."
 />
 
-<!-- Block 8: Footer + CTA + Watermark -->
+<!-- Block 7: Footer + CTA + Watermark -->
 <Footer />
