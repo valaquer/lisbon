@@ -9,16 +9,6 @@
 
 	// Mobile roster: 6 rows × 4 cols = 24 cards, tiling 16 girls
 	const mobileRoster = Array.from({ length: 24 }, (_, i) => girls[i % girls.length]);
-
-	// Mobile wing girls — offset-by-5 pattern to avoid adjacent duplicates
-	const mobileWings = [
-		{ left: girls[11], right: girls[8] },   // Row 1
-		{ left: girls[15], right: girls[12] },  // Row 2
-		{ left: girls[3],  right: girls[0] },   // Row 3
-		{ left: girls[7],  right: girls[4] },   // Row 4
-		{ left: girls[11], right: girls[8] },   // Row 5
-		{ left: girls[15], right: girls[12] },  // Row 6
-	];
 </script>
 
 <!-- Desktop Roster Grid (6 columns with 1/4 wing clip) -->
@@ -161,46 +151,24 @@
 	</div>
 </div>
 
-<!-- Mobile Roster Grid (6 rows × 4 cols + wings, device-edge clipping) -->
+<!-- Mobile Roster Grid (6 rows × 4 cols, device-edge clipping) -->
 <div class="md:hidden" style="overflow: hidden; padding: 48px 0; width: 100%;">
 	<div style="display: flex; flex-direction: column; gap: 10px; width: max-content; position: relative; left: 50%; transform: translateX(-50%);">
 		<!-- Row 1 (top 3/4 clipped — show bottom 1/4 only) -->
 		<div style="display: flex; gap: 10px;">
-		<!-- Left wing -->
-		<div style="width: 38px; flex-shrink: 0; overflow: hidden; display: flex; align-items: flex-end;
-			-webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 5%);
-			mask-image: linear-gradient(to bottom, transparent 0%, black 5%);">
-			<div style="width: 150px; margin-left: -112px; aspect-ratio: 9/16; border-radius: 16px; overflow: hidden; position: relative; margin-top: -133.33%;">
-				{#if mobileWings[0].left.img}<img src={mobileWings[0].left.img} alt={mobileWings[0].left.name} style="width: 102%; height: 102%; object-fit: cover; position: absolute; top: -1%; left: -1%;" />{/if}
-			</div>
-		</div>
 		{#each mobileRoster.slice(0, 4) as girl}
 			<div style="width: 150px; flex-shrink: 0; overflow: hidden; display: flex; align-items: flex-end;
 				-webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 5%);
 				mask-image: linear-gradient(to bottom, transparent 0%, black 5%);">
-				<div style="aspect-ratio: 9/16; width: 100%; border-radius: 16px; overflow: hidden; background: {girl.bg}; position: relative; margin-top: -133.33%;">
+				<div style="aspect-ratio: 9/16; width: 100%; border-radius: 16px; overflow: hidden; background: {girl.bg}; position: relative; margin-top: -163%;">
 					{#if girl.img}<img src={girl.img} alt={girl.name} style="width: 102%; height: 102%; object-fit: cover; position: absolute; top: -1%; left: -1%;" />{/if}
 				</div>
 			</div>
 		{/each}
-		<!-- Right wing -->
-		<div style="width: 38px; flex-shrink: 0; overflow: hidden; display: flex; align-items: flex-end;
-			-webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 5%);
-			mask-image: linear-gradient(to bottom, transparent 0%, black 5%);">
-			<div style="width: 150px; aspect-ratio: 9/16; border-radius: 16px; overflow: hidden; position: relative; margin-top: -133.33%;">
-				{#if mobileWings[0].right.img}<img src={mobileWings[0].right.img} alt={mobileWings[0].right.name} style="width: 102%; height: 102%; object-fit: cover; position: absolute; top: -1%; left: -1%;" />{/if}
-			</div>
-		</div>
 		</div>
 		<!-- Rows 2-5 (full cards) -->
 		{#each Array(4) as _, rowIdx}
 		<div style="display: flex; gap: 10px;">
-		<!-- Left wing -->
-		<div style="width: 38px; flex-shrink: 0; overflow: hidden;">
-			<div style="width: 150px; margin-left: -112px; aspect-ratio: 9/16; border-radius: 16px; overflow: hidden; position: relative;">
-				{#if mobileWings[rowIdx + 1].left.img}<img src={mobileWings[rowIdx + 1].left.img} alt={mobileWings[rowIdx + 1].left.name} style="width: 102%; height: 102%; object-fit: cover; position: absolute; top: -1%; left: -1%;" />{/if}
-			</div>
-		</div>
 		{#each mobileRoster.slice((rowIdx + 1) * 4, (rowIdx + 2) * 4) as girl}
 			<div style="width: 150px; flex-shrink: 0; aspect-ratio: 9/16; border-radius: 16px; overflow: hidden; background: {girl.bg}; position: relative;">
 				{#if girl.img}<img src={girl.img} alt={girl.name} style="width: 102%; height: 102%; object-fit: cover; position: absolute; top: -1%; left: -1%;" />{/if}
@@ -213,41 +181,19 @@
 				</div>
 			</div>
 		{/each}
-		<!-- Right wing -->
-		<div style="width: 38px; flex-shrink: 0; overflow: hidden;">
-			<div style="width: 150px; aspect-ratio: 9/16; border-radius: 16px; overflow: hidden; position: relative;">
-				{#if mobileWings[rowIdx + 1].right.img}<img src={mobileWings[rowIdx + 1].right.img} alt={mobileWings[rowIdx + 1].right.name} style="width: 102%; height: 102%; object-fit: cover; position: absolute; top: -1%; left: -1%;" />{/if}
-			</div>
-		</div>
 		</div>
 		{/each}
 		<!-- Row 6 (bottom 3/4 clipped — show top 1/4 only) -->
 		<div style="display: flex; gap: 10px;">
-		<!-- Left wing -->
-		<div style="width: 38px; flex-shrink: 0; overflow: hidden; display: flex; align-items: flex-start;
-			-webkit-mask-image: linear-gradient(to bottom, black 95%, transparent 100%);
-			mask-image: linear-gradient(to bottom, black 95%, transparent 100%);">
-			<div style="width: 150px; margin-left: -112px; aspect-ratio: 9/16; border-radius: 16px; overflow: hidden; position: relative; margin-bottom: -133.33%;">
-				{#if mobileWings[5].left.img}<img src={mobileWings[5].left.img} alt={mobileWings[5].left.name} style="width: 102%; height: 102%; object-fit: cover; position: absolute; top: -1%; left: -1%;" />{/if}
-			</div>
-		</div>
 		{#each mobileRoster.slice(20, 24) as girl}
 			<div style="width: 150px; flex-shrink: 0; overflow: hidden; display: flex; align-items: flex-start;
 				-webkit-mask-image: linear-gradient(to bottom, black 95%, transparent 100%);
 				mask-image: linear-gradient(to bottom, black 95%, transparent 100%);">
-				<div style="aspect-ratio: 9/16; width: 100%; border-radius: 16px; overflow: hidden; background: {girl.bg}; position: relative; margin-bottom: -133.33%;">
+				<div style="aspect-ratio: 9/16; width: 100%; border-radius: 16px; overflow: hidden; background: {girl.bg}; position: relative; margin-bottom: -163%;">
 					{#if girl.img}<img src={girl.img} alt={girl.name} style="width: 102%; height: 102%; object-fit: cover; position: absolute; top: -1%; left: -1%;" />{/if}
 				</div>
 			</div>
 		{/each}
-		<!-- Right wing -->
-		<div style="width: 38px; flex-shrink: 0; overflow: hidden; display: flex; align-items: flex-start;
-			-webkit-mask-image: linear-gradient(to bottom, black 95%, transparent 100%);
-			mask-image: linear-gradient(to bottom, black 95%, transparent 100%);">
-			<div style="width: 150px; aspect-ratio: 9/16; border-radius: 16px; overflow: hidden; position: relative; margin-bottom: -133.33%;">
-				{#if mobileWings[5].right.img}<img src={mobileWings[5].right.img} alt={mobileWings[5].right.name} style="width: 102%; height: 102%; object-fit: cover; position: absolute; top: -1%; left: -1%;" />{/if}
-			</div>
-		</div>
 		</div>
 	</div>
 </div>
