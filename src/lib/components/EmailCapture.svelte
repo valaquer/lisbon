@@ -15,6 +15,7 @@
 	/>
 	<button class="email-btn">
 		<span style="position: relative; z-index: 1;">Join the waitlist</span>
+		<div data-shimmer style="position: absolute; inset: 0; transform: translateX(-100%); background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.2) 40%, rgba(255,255,255,0.2) 60%, transparent 100%);"></div>
 	</button>
 </div>
 

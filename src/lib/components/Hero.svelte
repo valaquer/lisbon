@@ -31,7 +31,7 @@
 		</p>
 
 		<EmailCapture id="hero" />
-		<p style="color: #E8E4DF; font-family: Inter, sans-serif; font-size: 14px; margin-top: 12px;">Cache Code: T4R | vw:{vw}</p>
+		<p style="color: #E8E4DF; font-family: Inter, sans-serif; font-size: 14px; margin-top: 12px;">Cache Code: U7D | vw:{vw}</p>
 	</div>
 </section>
 
