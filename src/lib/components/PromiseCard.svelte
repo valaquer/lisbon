@@ -27,7 +27,7 @@
 		>
 			<picture>
 				<source srcset={image.replace(/\.jpg$/, '.avif')} type="image/avif" />
-				<img src={image} alt="" loading="lazy" width="540" height="960" />
+				<img src={image} alt="" width="540" height="960" />
 			</picture>
 		</div>
 	</div>

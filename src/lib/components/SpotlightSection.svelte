@@ -95,7 +95,7 @@
 				<div style="width: 200px; aspect-ratio: 9/16; border-radius: 24px; overflow: hidden; position: relative;">
 					<picture>
 						<source srcset={photo.replace(/\.jpg$/, '.avif')} type="image/avif" />
-						<img src={photo} alt="{girl.name} — {girl.labels[i]}" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;" loading="lazy" width="540" height="960" />
+						<img src={photo} alt="{girl.name} — {girl.labels[i]}" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;" width="540" height="960" />
 					</picture>
 					<div style="position: absolute; bottom: 8px; left: 0; right: 0; text-align: center;">
 						<span style="font-family: 'JetBrains Mono', monospace; font-size: 12.8px; color: #E8E4DF; opacity: 0.6;">{girl.labels[i]}</span>
@@ -115,7 +115,7 @@
 					<div class="spotlight-photo" style="{i === 0 ? 'position: relative;' : 'position: absolute; inset: 0;'}">
 						<picture>
 							<source srcset={photo.replace(/\.jpg$/, '.avif')} type="image/avif" />
-							<img src={photo} alt="{girl.name} — {girl.labels[i]}" loading="lazy" width="540" height="960" />
+							<img src={photo} alt="{girl.name} — {girl.labels[i]}" width="540" height="960" />
 						</picture>
 					</div>
 				{/each}
