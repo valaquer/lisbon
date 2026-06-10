@@ -134,10 +134,10 @@
 			tabindex="-1"
 			autocomplete="off"
 		/>
-
-		<!-- Turnstile container -->
-		<div id={turnstileContainerId}></div>
 	</div>
+
+	<!-- Turnstile container — outside flex row, invisible -->
+	<div id={turnstileContainerId} style="position: fixed; bottom: 0; right: 0; z-index: 100;"></div>
 
 	{#if status === 'error' && errorMessage}
 		<p class="error-text">{errorMessage}</p>
