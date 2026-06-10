@@ -11,18 +11,12 @@ export const POST: RequestHandler = async ({ request }) => {
 	const data = await request.json();
 
 	const email = data.email?.trim().toLowerCase();
-	const consentFlag = data.consent_flag;
 	const honeypot = data.honeypot;
 	const turnstileToken = data.turnstile_token;
 
 	// Honeypot: if filled, return silent success
 	if (honeypot) {
 		return json({ success: true });
-	}
-
-	// Consent check
-	if (!consentFlag) {
-		return json({ error: 'You must agree to the privacy policy.' }, { status: 400 });
 	}
 
 	// Email validation
