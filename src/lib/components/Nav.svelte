@@ -8,6 +8,8 @@
 			if (el) {
 				el.scrollIntoView({ behavior: 'smooth', block: 'center' });
 				setTimeout(() => el.focus(), 600);
+			} else {
+				window.location.href = '/#hero-email';
 			}
 		}}
 	>
@@ -17,11 +19,18 @@
 
 <style>
 	.nav-bar {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 50;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		padding: 16px 48px;
-		background-color: #0B0D10;
+		background: rgba(11, 13, 16, 0.85);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
 	}
 
 	.nav-logo {

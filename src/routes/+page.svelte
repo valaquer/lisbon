@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Nav from '$lib/components/Nav.svelte';
 	import Hero from '$lib/components/Hero.svelte';
 	import PromiseCard from '$lib/components/PromiseCard.svelte';
 	import TrustBar from '$lib/components/TrustBar.svelte';
@@ -23,9 +22,6 @@
 <svelte:head>
 	<title>Provoque AI</title>
 </svelte:head>
-
-<!-- Block 1: Nav -->
-<Nav />
 
 <!-- Block 2: Hero -->
 <Hero />
