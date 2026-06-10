@@ -28,7 +28,7 @@
 			mask-image: linear-gradient(to right, transparent 0%, black 5%), linear-gradient(to bottom, transparent 0%, black 1%); mask-composite: intersect;">
 			<div style="width: 220px; margin-left: -165px; display: flex; align-items: flex-end; overflow: hidden;">
 				<div style="aspect-ratio: 9/16; width: 100%; border-radius: 24px; overflow: hidden; background: {girls[11].bg}; position: relative; margin-top: -153%;">
-					<img src={girls[11].img} alt={girls[11].name} style="width: 102%; height: 102%; object-fit: cover; position: absolute; top: -1%; left: -1%;" />
+					<picture><source srcset={girls[11].img.replace(/\.jpg$/, '.avif')} type="image/avif" /><img src={girls[11].img} alt={girls[11].name} style="width: 102%; height: 102%; object-fit: cover; position: absolute; top: -1%; left: -1%;" loading="lazy" /></picture>
 				</div>
 			</div>
 		</div>
@@ -37,7 +37,7 @@
 			-webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 1%);
 			mask-image: linear-gradient(to bottom, transparent 0%, black 1%);">
 			<div class="roster-card" style="aspect-ratio: 9/16; width: 100%; border-radius: 24px; overflow: hidden; background: {girl.bg}; position: relative; margin-top: -153%;">
-				{#if girl.img}<img src={girl.img} alt={girl.name} style="width: 102%; height: 102%; object-fit: cover; position: absolute; top: -1%; left: -1%;" />{/if}
+				{#if girl.img}<picture><source srcset={girl.img.replace(/\.jpg$/, '.avif')} type="image/avif" /><img src={girl.img} alt={girl.name} style="width: 102%; height: 102%; object-fit: cover; position: absolute; top: -1%; left: -1%;" loading="lazy" /></picture>{/if}
 			</div>
 		</div>
 		{/each}
@@ -47,7 +47,7 @@
 			mask-image: linear-gradient(to right, black 95%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 1%); mask-composite: intersect;">
 			<div style="width: 220px; display: flex; align-items: flex-end; overflow: hidden;">
 				<div style="aspect-ratio: 9/16; width: 100%; border-radius: 24px; overflow: hidden; background: {girls[8].bg}; position: relative; margin-top: -153%;">
-					<img src={girls[8].img} alt={girls[8].name} style="width: 102%; height: 102%; object-fit: cover; position: absolute; top: -1%; left: -1%;" />
+					<picture><source srcset={girls[8].img.replace(/\.jpg$/, '.avif')} type="image/avif" /><img src={girls[8].img} alt={girls[8].name} style="width: 102%; height: 102%; object-fit: cover; position: absolute; top: -1%; left: -1%;" loading="lazy" /></picture>
 				</div>
 			</div>
 		</div>
@@ -59,12 +59,12 @@
 			-webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%);
 			mask-image: linear-gradient(to right, transparent 0%, black 5%);">
 			<div class="roster-card" style="margin-left: -165px;">
-				<img src={girls[15].img} alt={girls[15].name} style="width: 102%; height: 102%; object-fit: cover; position: absolute; top: -1%; left: -1%;" />
+				<picture><source srcset={girls[15].img.replace(/\.jpg$/, '.avif')} type="image/avif" /><img src={girls[15].img} alt={girls[15].name} style="width: 102%; height: 102%; object-fit: cover; position: absolute; top: -1%; left: -1%;" loading="lazy" /></picture>
 			</div>
 		</div>
 		{#each girls.slice(4, 8) as girl}
 		<div class="roster-card" use:squircleClip={24}>
-			{#if girl.img}<img src={girl.img} alt={girl.name} style="width: 102%; height: 102%; object-fit: cover; position: absolute; top: -1%; left: -1%;" />{/if}
+			{#if girl.img}<picture><source srcset={girl.img.replace(/\.jpg$/, '.avif')} type="image/avif" /><img src={girl.img} alt={girl.name} style="width: 102%; height: 102%; object-fit: cover; position: absolute; top: -1%; left: -1%;" loading="lazy" /></picture>{/if}
 			<div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 14px 14px 12px; background: linear-gradient(transparent, rgba(0,0,0,0.35));">
 				<div style="display: flex; align-items: center; gap: 6px; margin-bottom: 3px;">
 					<span style="font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 18px; color: #E8E4DF;">{girl.name}</span>
@@ -83,7 +83,7 @@
 			-webkit-mask-image: linear-gradient(to right, black 95%, transparent 100%);
 			mask-image: linear-gradient(to right, black 95%, transparent 100%);">
 			<div class="roster-card" use:squircleClip={24}>
-				<img src={girls[12].img} alt={girls[12].name} style="width: 102%; height: 102%; object-fit: cover; position: absolute; top: -1%; left: -1%;" />
+				<picture><source srcset={girls[12].img.replace(/\.jpg$/, '.avif')} type="image/avif" /><img src={girls[12].img} alt={girls[12].name} style="width: 102%; height: 102%; object-fit: cover; position: absolute; top: -1%; left: -1%;" loading="lazy" /></picture>
 			</div>
 		</div>
 		</div>
@@ -94,12 +94,12 @@
 			-webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%);
 			mask-image: linear-gradient(to right, transparent 0%, black 5%);">
 			<div class="roster-card" style="margin-left: -165px;">
-				<img src={girls[3].img} alt={girls[3].name} style="width: 102%; height: 102%; object-fit: cover; position: absolute; top: -1%; left: -1%;" />
+				<picture><source srcset={girls[3].img.replace(/\.jpg$/, '.avif')} type="image/avif" /><img src={girls[3].img} alt={girls[3].name} style="width: 102%; height: 102%; object-fit: cover; position: absolute; top: -1%; left: -1%;" loading="lazy" /></picture>
 			</div>
 		</div>
 		{#each girls.slice(8, 12) as girl}
 		<div class="roster-card" use:squircleClip={24}>
-			{#if girl.img}<img src={girl.img} alt={girl.name} style="width: 102%; height: 102%; object-fit: cover; position: absolute; top: -1%; left: -1%;" />{/if}
+			{#if girl.img}<picture><source srcset={girl.img.replace(/\.jpg$/, '.avif')} type="image/avif" /><img src={girl.img} alt={girl.name} style="width: 102%; height: 102%; object-fit: cover; position: absolute; top: -1%; left: -1%;" loading="lazy" /></picture>{/if}
 			<div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 14px 14px 12px; background: linear-gradient(transparent, rgba(0,0,0,0.35));">
 				<div style="display: flex; align-items: center; gap: 6px; margin-bottom: 3px;">
 					<span style="font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 18px; color: #E8E4DF;">{girl.name}</span>
@@ -118,7 +118,7 @@
 			-webkit-mask-image: linear-gradient(to right, black 95%, transparent 100%);
 			mask-image: linear-gradient(to right, black 95%, transparent 100%);">
 			<div class="roster-card" use:squircleClip={24}>
-				<img src={girls[0].img} alt={girls[0].name} style="width: 102%; height: 102%; object-fit: cover; position: absolute; top: -1%; left: -1%;" />
+				<picture><source srcset={girls[0].img.replace(/\.jpg$/, '.avif')} type="image/avif" /><img src={girls[0].img} alt={girls[0].name} style="width: 102%; height: 102%; object-fit: cover; position: absolute; top: -1%; left: -1%;" loading="lazy" /></picture>
 			</div>
 		</div>
 		</div>
@@ -130,7 +130,7 @@
 			mask-image: linear-gradient(to right, transparent 0%, black 5%), linear-gradient(to bottom, black 99%, transparent 100%); mask-composite: intersect;">
 			<div style="width: 220px; margin-left: -165px; display: flex; align-items: flex-start; overflow: hidden;">
 				<div style="aspect-ratio: 9/16; width: 100%; border-radius: 24px; overflow: hidden; background: {girls[7].bg}; position: relative; margin-bottom: -153%;">
-					<img src={girls[7].img} alt={girls[7].name} style="width: 102%; height: 102%; object-fit: cover; position: absolute; top: -1%; left: -1%;" />
+					<picture><source srcset={girls[7].img.replace(/\.jpg$/, '.avif')} type="image/avif" /><img src={girls[7].img} alt={girls[7].name} style="width: 102%; height: 102%; object-fit: cover; position: absolute; top: -1%; left: -1%;" loading="lazy" /></picture>
 				</div>
 			</div>
 		</div>
@@ -139,7 +139,7 @@
 			-webkit-mask-image: linear-gradient(to bottom, black 99%, transparent 100%);
 			mask-image: linear-gradient(to bottom, black 99%, transparent 100%);">
 			<div class="roster-card" style="aspect-ratio: 9/16; width: 100%; border-radius: 24px; overflow: hidden; background: {girl.bg}; position: relative; margin-bottom: -153%;">
-				{#if girl.img}<img src={girl.img} alt={girl.name} style="width: 102%; height: 102%; object-fit: cover; position: absolute; top: -1%; left: -1%;" />{/if}
+				{#if girl.img}<picture><source srcset={girl.img.replace(/\.jpg$/, '.avif')} type="image/avif" /><img src={girl.img} alt={girl.name} style="width: 102%; height: 102%; object-fit: cover; position: absolute; top: -1%; left: -1%;" loading="lazy" /></picture>{/if}
 			</div>
 		</div>
 		{/each}
@@ -149,7 +149,7 @@
 			mask-image: linear-gradient(to right, black 95%, transparent 100%), linear-gradient(to bottom, black 99%, transparent 100%); mask-composite: intersect;">
 			<div style="width: 220px; display: flex; align-items: flex-start; overflow: hidden;">
 				<div style="aspect-ratio: 9/16; width: 100%; border-radius: 24px; overflow: hidden; background: {girls[4].bg}; position: relative; margin-bottom: -153%;">
-					<img src={girls[4].img} alt={girls[4].name} style="width: 102%; height: 102%; object-fit: cover; position: absolute; top: -1%; left: -1%;" />
+					<picture><source srcset={girls[4].img.replace(/\.jpg$/, '.avif')} type="image/avif" /><img src={girls[4].img} alt={girls[4].name} style="width: 102%; height: 102%; object-fit: cover; position: absolute; top: -1%; left: -1%;" loading="lazy" /></picture>
 				</div>
 			</div>
 		</div>
@@ -167,7 +167,7 @@
 				-webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 5%);
 				mask-image: linear-gradient(to bottom, transparent 0%, black 5%);">
 				<div style="aspect-ratio: 9/16; width: 100%; border-radius: 16px; overflow: hidden; background: {girl.bg}; position: relative; margin-top: -163%;">
-					{#if girl.img}<img src={girl.img} alt={girl.name} style="width: 102%; height: 102%; object-fit: cover; position: absolute; top: -1%; left: -1%;" />{/if}
+					{#if girl.img}<picture><source srcset={girl.img.replace(/\.jpg$/, '.avif')} type="image/avif" /><img src={girl.img} alt={girl.name} style="width: 102%; height: 102%; object-fit: cover; position: absolute; top: -1%; left: -1%;" loading="lazy" /></picture>{/if}
 				</div>
 			</div>
 		{/each}
@@ -179,7 +179,7 @@
 			<!-- svelte-ignore a11y_click_events_have_key_events -->
 			<!-- svelte-ignore a11y_no_static_element_interactions -->
 			<div class="mobile-card" class:expanded={expandedCard === (rowIdx + 1) * 4 + i} onclick={() => toggleCard((rowIdx + 1) * 4 + i)} use:squircleClip={16} style="width: 150px; flex-shrink: 0; aspect-ratio: 9/16; overflow: hidden; background: {girl.bg}; position: relative; cursor: pointer;">
-				{#if girl.img}<img src={girl.img} alt={girl.name} style="width: 102%; height: 102%; object-fit: cover; position: absolute; top: -1%; left: -1%;" />{/if}
+				{#if girl.img}<picture><source srcset={girl.img.replace(/\.jpg$/, '.avif')} type="image/avif" /><img src={girl.img} alt={girl.name} style="width: 102%; height: 102%; object-fit: cover; position: absolute; top: -1%; left: -1%;" loading="lazy" /></picture>{/if}
 				<div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 10px 10px 8px; background: linear-gradient(transparent, rgba(0,0,0,0.4));">
 					<div style="display: flex; align-items: center; gap: 4px; margin-bottom: 2px;">
 						<span style="font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 14px; color: #E8E4DF;">{girl.name}</span>
@@ -198,7 +198,7 @@
 				-webkit-mask-image: linear-gradient(to bottom, black 95%, transparent 100%);
 				mask-image: linear-gradient(to bottom, black 95%, transparent 100%);">
 				<div style="aspect-ratio: 9/16; width: 100%; border-radius: 16px; overflow: hidden; background: {girl.bg}; position: relative; margin-bottom: -163%;">
-					{#if girl.img}<img src={girl.img} alt={girl.name} style="width: 102%; height: 102%; object-fit: cover; position: absolute; top: -1%; left: -1%;" />{/if}
+					{#if girl.img}<picture><source srcset={girl.img.replace(/\.jpg$/, '.avif')} type="image/avif" /><img src={girl.img} alt={girl.name} style="width: 102%; height: 102%; object-fit: cover; position: absolute; top: -1%; left: -1%;" loading="lazy" /></picture>{/if}
 				</div>
 			</div>
 		{/each}

@@ -8,11 +8,14 @@
 <section class="hero">
 	<!-- Sophie — full bleed background -->
 	<picture>
+		<source media="(max-width: 768px)" srcset="/sophie-afj.avif" type="image/avif" />
 		<source media="(max-width: 768px)" srcset="/sophie-afj.jpg" />
+		<source srcset="/sophie-hero-wide.avif" type="image/avif" />
 		<img
 			src="/sophie-hero-wide.jpg"
 			alt="Sophie"
 			class="hero-img"
+			loading="eager"
 		/>
 	</picture>
 
@@ -31,7 +34,7 @@
 		</p>
 
 		<EmailCapture id="hero" />
-		<p style="color: #E8E4DF; font-family: Inter, sans-serif; font-size: 14px; margin-top: 12px;">Cache Code: HID | vw:{vw}</p>
+		<p style="color: #E8E4DF; font-family: Inter, sans-serif; font-size: 14px; margin-top: 12px;">Cache Code: 7K3 | vw:{vw}</p>
 	</div>
 </section>
 
