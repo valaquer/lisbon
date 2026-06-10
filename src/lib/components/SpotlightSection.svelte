@@ -2,6 +2,7 @@
 	import gsap from 'gsap';
 	import { ScrollTrigger } from 'gsap/ScrollTrigger';
 	import type { SpotlightGirl } from '$lib/data/spotlight';
+	import { squircleClip } from '$lib/utils/squircle';
 
 	interface Props {
 		girl: SpotlightGirl;
@@ -105,7 +106,8 @@
 	<div use:spotlightScrollLock style="min-height: 100vh; display: flex; align-items: center; justify-content: center;">
 		<div class="spotlight-layout">
 			<!-- Left: Photo area -->
-			<div class="photo-area">
+			<div class="photo-glow">
+			<div class="photo-area" use:squircleClip={24}>
 				{#each girl.photos as photo, i}
 					<div class="spotlight-photo" style="{i === 0 ? 'position: relative;' : 'position: absolute; inset: 0;'}">
 						<img src={photo} alt="{girl.name} — {girl.labels[i]}" loading="lazy" />
@@ -117,6 +119,7 @@
 						<span class="label" class:active={i === activeLabel}>{label}</span>
 					{/each}
 				</div>
+			</div>
 			</div>
 
 			<!-- Right: Text panel -->
@@ -143,15 +146,18 @@
 		padding: 0 clamp(24px, 4vw, 48px);
 	}
 
+	.photo-glow {
+		flex-shrink: 0;
+		animation: glowPulse 4s ease-in-out infinite;
+		border-radius: 24px;
+	}
+
 	.photo-area {
 		height: 80vh;
 		aspect-ratio: 9 / 16;
 		width: auto;
-		border-radius: 24px;
 		overflow: hidden;
 		position: relative;
-		flex-shrink: 0;
-		animation: glowPulse 4s ease-in-out infinite;
 	}
 
 	@keyframes glowPulse {
@@ -164,7 +170,6 @@
 	}
 
 	.spotlight-photo {
-		border-radius: 24px;
 		overflow: hidden;
 	}
 

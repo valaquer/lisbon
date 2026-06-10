@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { squircleClip } from '$lib/utils/squircle';
+
 	interface Props {
 		heading: string;
 		body: string;
@@ -21,6 +23,7 @@
 			class:expanded
 			style="transform: rotate({rotation});"
 			onclick={() => { expanded = !expanded; }}
+			use:squircleClip={24}
 		>
 			<img src={image} alt="" />
 		</div>
@@ -66,7 +69,6 @@
 	.promise-photo {
 		width: 220px;
 		aspect-ratio: 9 / 16;
-		border-radius: 24px;
 		overflow: hidden;
 		transition: width 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
 	}

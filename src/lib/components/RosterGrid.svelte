@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { RosterGirl } from '$lib/data/roster';
+	import { squircleClip } from '$lib/utils/squircle';
 
 	interface Props {
 		girls: RosterGirl[];
@@ -62,7 +63,7 @@
 			</div>
 		</div>
 		{#each girls.slice(4, 8) as girl}
-		<div class="roster-card">
+		<div class="roster-card" use:squircleClip={24}>
 			{#if girl.img}<img src={girl.img} alt={girl.name} style="width: 102%; height: 102%; object-fit: cover; position: absolute; top: -1%; left: -1%;" />{/if}
 			<div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 14px 14px 12px; background: linear-gradient(transparent, rgba(0,0,0,0.35));">
 				<div style="display: flex; align-items: center; gap: 6px; margin-bottom: 3px;">
@@ -81,7 +82,7 @@
 		<div style="width: 55px; flex-shrink: 0; overflow: hidden;
 			-webkit-mask-image: linear-gradient(to right, black 95%, transparent 100%);
 			mask-image: linear-gradient(to right, black 95%, transparent 100%);">
-			<div class="roster-card">
+			<div class="roster-card" use:squircleClip={24}>
 				<img src={girls[12].img} alt={girls[12].name} style="width: 102%; height: 102%; object-fit: cover; position: absolute; top: -1%; left: -1%;" />
 			</div>
 		</div>
@@ -97,7 +98,7 @@
 			</div>
 		</div>
 		{#each girls.slice(8, 12) as girl}
-		<div class="roster-card">
+		<div class="roster-card" use:squircleClip={24}>
 			{#if girl.img}<img src={girl.img} alt={girl.name} style="width: 102%; height: 102%; object-fit: cover; position: absolute; top: -1%; left: -1%;" />{/if}
 			<div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 14px 14px 12px; background: linear-gradient(transparent, rgba(0,0,0,0.35));">
 				<div style="display: flex; align-items: center; gap: 6px; margin-bottom: 3px;">
@@ -116,7 +117,7 @@
 		<div style="width: 55px; flex-shrink: 0; overflow: hidden;
 			-webkit-mask-image: linear-gradient(to right, black 95%, transparent 100%);
 			mask-image: linear-gradient(to right, black 95%, transparent 100%);">
-			<div class="roster-card">
+			<div class="roster-card" use:squircleClip={24}>
 				<img src={girls[0].img} alt={girls[0].name} style="width: 102%; height: 102%; object-fit: cover; position: absolute; top: -1%; left: -1%;" />
 			</div>
 		</div>
@@ -177,7 +178,7 @@
 		{#each mobileRoster.slice((rowIdx + 1) * 4, (rowIdx + 2) * 4) as girl, i}
 			<!-- svelte-ignore a11y_click_events_have_key_events -->
 			<!-- svelte-ignore a11y_no_static_element_interactions -->
-			<div class="mobile-card" class:expanded={expandedCard === (rowIdx + 1) * 4 + i} onclick={() => toggleCard((rowIdx + 1) * 4 + i)} style="width: 150px; flex-shrink: 0; aspect-ratio: 9/16; border-radius: 16px; overflow: hidden; background: {girl.bg}; position: relative; cursor: pointer;">
+			<div class="mobile-card" class:expanded={expandedCard === (rowIdx + 1) * 4 + i} onclick={() => toggleCard((rowIdx + 1) * 4 + i)} use:squircleClip={16} style="width: 150px; flex-shrink: 0; aspect-ratio: 9/16; overflow: hidden; background: {girl.bg}; position: relative; cursor: pointer;">
 				{#if girl.img}<img src={girl.img} alt={girl.name} style="width: 102%; height: 102%; object-fit: cover; position: absolute; top: -1%; left: -1%;" />{/if}
 				<div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 10px 10px 8px; background: linear-gradient(transparent, rgba(0,0,0,0.4));">
 					<div style="display: flex; align-items: center; gap: 4px; margin-bottom: 2px;">
@@ -210,7 +211,6 @@
 		flex-shrink: 0;
 		width: 220px;
 		aspect-ratio: 9 / 16;
-		border-radius: 24px;
 		overflow: hidden;
 		position: relative;
 		cursor: pointer;
