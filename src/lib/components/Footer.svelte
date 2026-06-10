@@ -1,32 +1,5 @@
 <script lang="ts">
 	import EmailCapture from './EmailCapture.svelte';
-
-	function shimmerAction(node: HTMLElement) {
-		const shimmerDiv = node.querySelector('[data-shimmer]') as HTMLElement;
-		if (!shimmerDiv) return;
-		let timer: ReturnType<typeof setTimeout> | null = null;
-		const observer = new IntersectionObserver((entries) => {
-			entries.forEach(entry => {
-				if (entry.isIntersecting) {
-					const delay = 1 + Math.random() * 2;
-					timer = setTimeout(() => {
-						shimmerDiv.style.transition = 'transform 0.8s ease-out'; shimmerDiv.style.transform = 'translateX(200%)';
-						observer.unobserve(node);
-					}, delay * 1000);
-				} else if (timer) {
-					clearTimeout(timer);
-					timer = null;
-				}
-			});
-		}, { threshold: 0.5 });
-		observer.observe(node);
-		return {
-			destroy() {
-				if (timer) clearTimeout(timer);
-				observer.disconnect();
-			}
-		};
-	}
 </script>
 
 <!-- Final CTA -->
@@ -34,7 +7,7 @@
 	<div style="text-align: center; margin-bottom: 80px;">
 		<h2 style="font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(28px, 3vw, 48px); color: #E8E4DF; margin-bottom: 16px;">Ready to meet her?</h2>
 		<p style="font-family: 'Inter', system-ui, sans-serif; font-size: clamp(14px, 1.1vw, 16px); color: #E8E4DF; opacity: 0.6; margin-bottom: 32px;">She's waiting.</p>
-		<div class="footer-form-wrapper" use:shimmerAction>
+		<div class="footer-form-wrapper">
 			<EmailCapture id="footer" />
 		</div>
 	</div>
@@ -79,9 +52,4 @@
 		}
 	}
 
-	@keyframes shimmer {
-		to {
-			transform: translateX(100%);
-		}
-	}
 </style>
