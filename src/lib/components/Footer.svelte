@@ -34,7 +34,7 @@
 	<div style="text-align: center; margin-bottom: 80px;">
 		<h2 style="font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(28px, 3vw, 48px); color: #E8E4DF; margin-bottom: 16px;">Ready to meet her?</h2>
 		<p style="font-family: 'Inter', system-ui, sans-serif; font-size: clamp(14px, 1.1vw, 16px); color: #E8E4DF; opacity: 0.6; margin-bottom: 32px;">She's waiting.</p>
-		<div style="display: flex; gap: 12px; max-width: 420px; margin: 0 auto;" use:shimmerAction>
+		<div class="footer-form-wrapper" use:shimmerAction>
 			<EmailCapture id="footer" />
 		</div>
 	</div>
@@ -65,6 +65,20 @@
 </div>
 
 <style>
+	.footer-form-wrapper {
+		display: flex;
+		gap: 12px;
+		max-width: 420px;
+		margin: 0 auto;
+	}
+
+	@media (max-width: 768px) {
+		.footer-form-wrapper {
+			display: block;
+			max-width: 100%;
+		}
+	}
+
 	@keyframes shimmer {
 		to {
 			transform: translateX(100%);
