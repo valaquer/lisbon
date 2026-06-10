@@ -33,7 +33,7 @@
 				scrollTrigger: {
 					trigger: node,
 					pin: true,
-					start: 'top top',
+					start: 'top 64px',
 					end: '+=400%',
 					scrub: 1.5,
 	
@@ -106,7 +106,7 @@
 	</div>
 {:else}
 	<!-- Scroll-locked spotlight -->
-	<div use:spotlightScrollLock style="min-height: 100vh; display: flex; align-items: center; justify-content: center;">
+	<div use:spotlightScrollLock style="min-height: calc(100vh - 64px); display: flex; align-items: center; justify-content: center;">
 		<div class="spotlight-layout">
 			<!-- Left: Photo area -->
 			<div class="photo-glow">
@@ -159,7 +159,7 @@
 	}
 
 	.photo-area {
-		height: 80vh;
+		height: calc(100vh - 64px - 48px);
 		aspect-ratio: 9 / 16;
 		width: auto;
 		overflow: hidden;
