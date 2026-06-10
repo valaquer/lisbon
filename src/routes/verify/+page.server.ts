@@ -1,3 +1,4 @@
+import { redirect } from '@sveltejs/kit';
 import { getSupabaseAdmin } from '$lib/server/supabase';
 import type { PageServerLoad } from './$types';
 
@@ -45,5 +46,5 @@ export const load: PageServerLoad = async ({ url }) => {
 		return { status: 'error', message: 'Something went wrong. Please try again.' };
 	}
 
-	return { status: 'confirmed', message: 'Your email has been confirmed. Welcome to Provoque.' };
+	throw redirect(303, '/?verified=true');
 };

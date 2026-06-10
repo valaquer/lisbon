@@ -9,13 +9,20 @@
 	let { id }: Props = $props();
 
 	let email = $state('');
-	let status = $state<'idle' | 'loading' | 'success' | 'error'>('idle');
+	let status = $state<'idle' | 'loading' | 'success' | 'error' | 'verified'>('idle');
 	let errorMessage = $state('');
 	let honeypot = $state('');
 	let turnstileToken = $state('');
 	let turnstileContainerId = `turnstile-${id || 'default'}`;
 
 	onMount(() => {
+		// Check for verified redirect
+		const params = new URLSearchParams(window.location.search);
+		if (params.get('verified') === 'true') {
+			status = 'verified';
+			history.replaceState(null, '', '/');
+		}
+
 		// Render Turnstile widget once script is available
 		function renderTurnstile() {
 			if (typeof window.turnstile !== 'undefined') {
@@ -98,7 +105,11 @@
 	}
 </script>
 
-{#if status === 'success'}
+{#if status === 'verified'}
+	<div class="success-message">
+		You're in. Not long now.
+	</div>
+{:else if status === 'success'}
 	<div class="success-message">
 		Check your email to confirm.
 	</div>
