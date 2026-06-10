@@ -39,15 +39,12 @@
 
 <style>
 	.footer-form-wrapper {
-		display: flex;
-		gap: 12px;
 		max-width: 420px;
 		margin: 0 auto;
 	}
 
 	@media (max-width: 768px) {
 		.footer-form-wrapper {
-			display: block;
 			max-width: 100%;
 		}
 	}
