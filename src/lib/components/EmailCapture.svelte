@@ -107,7 +107,7 @@
 
 {#if status === 'verified'}
 	<div class="success-message">
-		You're in. Not long now.
+		Your email has been confirmed. Thank you.
 	</div>
 {:else if status === 'success'}
 	<div class="success-message">
