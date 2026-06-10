@@ -256,6 +256,7 @@
 		}
 
 		.photo-area {
+			height: 60vh;
 			width: 100%;
 			max-height: none;
 		}
