@@ -226,6 +226,12 @@
 		}
 	}
 
+	@media (prefers-reduced-motion: reduce) {
+		.roster-card img {
+			transition: none;
+		}
+	}
+
 	/* Mobile tap-to-expand — floats above grid */
 	.mobile-card {
 		transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);

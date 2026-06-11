@@ -57,3 +57,16 @@ body {
 	font-family: 'Inter', sans-serif;
 	overflow-x: clip;
 }
+
+/* Accessibility: magenta focus indicators */
+:focus-visible {
+	outline: 2px solid #AE0D46;
+	outline-offset: 2px;
+}
+
+/* Reduced motion: disable animations */
+@media (prefers-reduced-motion: reduce) {
+	@keyframes shimmer {
+		0%, 100% { transform: translateX(-100%); }
+	}
+}

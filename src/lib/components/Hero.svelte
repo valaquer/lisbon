@@ -13,7 +13,7 @@
 		<source srcset="/sophie-hero-wide.avif" type="image/avif" />
 		<img
 			src="/sophie-hero-wide.jpg"
-			alt="Sophie"
+			alt="Sophie — AI girlfriend"
 			class="hero-img"
 			loading="eager"
 		/>
@@ -34,7 +34,7 @@
 		</p>
 
 		<EmailCapture id="hero" />
-		<p style="color: #E8E4DF; font-family: Inter, sans-serif; font-size: 14px; margin-top: 12px;">Cache Code: K4R | vw:{vw}</p>
+		<p style="color: #E8E4DF; font-family: Inter, sans-serif; font-size: 14px; margin-top: 12px;">Cache Code: V2M | vw:{vw}</p>
 	</div>
 </section>
 

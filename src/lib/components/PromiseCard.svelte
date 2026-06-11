@@ -27,7 +27,7 @@
 		>
 			<picture>
 				<source srcset={image.replace(/\.jpg$/, '.avif')} type="image/avif" />
-				<img src={image} alt="" width="540" height="960" />
+				<img src={image} alt="{heading}" width="540" height="960" />
 			</picture>
 		</div>
 	</div>
@@ -119,6 +119,17 @@
 		opacity: 0.8;
 		line-height: 1.7;
 		max-width: 420px;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.promise-photo {
+			transition: none;
+		}
+		.promise-photo:hover,
+		.promise-photo.expanded {
+			width: 220px;
+			transition: none;
+		}
 	}
 
 	@media (max-width: 768px) {

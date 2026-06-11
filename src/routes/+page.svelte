@@ -20,7 +20,31 @@
 </script>
 
 <svelte:head>
-	<title>Provoque AI</title>
+	<title>Provoque AI — Finally, Somebody Who Remembers</title>
+	<meta name="description" content="An AI girlfriend who listens to you, comes to know you, and never leaves you. No content filters. No memory wipes. Join the waitlist." />
+
+	<!-- Open Graph -->
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://provoque.ai" />
+	<meta property="og:title" content="Provoque AI — Finally, Somebody Who Remembers" />
+	<meta property="og:description" content="An AI girlfriend who listens to you, comes to know you, and never leaves you. No content filters. No memory wipes. Join the waitlist." />
+	<meta property="og:image" content="https://provoque.ai/og-image.jpg" />
+
+	<!-- Twitter Card -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="Provoque AI — Finally, Somebody Who Remembers" />
+	<meta name="twitter:description" content="An AI girlfriend who listens to you, comes to know you, and never leaves you. No content filters. No memory wipes. Join the waitlist." />
+	<meta name="twitter:image" content="https://provoque.ai/og-image.jpg" />
+
+	<!-- Structured Data -->
+	{@html `<script type="application/ld+json">${JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "Organization",
+		"name": "Provoque AI",
+		"url": "https://provoque.ai",
+		"description": "An AI girlfriend who listens to you, comes to know you, and never leaves you.",
+		"logo": "https://provoque.ai/provoque-wordmark.svg"
+	})}</script>`}
 </svelte:head>
 
 <!-- Block 2: Hero -->
