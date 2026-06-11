@@ -3,7 +3,6 @@
 </svelte:head>
 
 <div class="screen">
-	<div class="container">
 		<h1>Privacy Policy</h1>
 		<p class="updated">Last updated: June 11, 2026</p>
 
@@ -131,7 +130,6 @@
 		</section>
 
 		<a href="/" class="back-link">Back to provoque.ai</a>
-	</div>
 </div>
 
 <style>
@@ -141,15 +139,10 @@
 		padding: 4rem 1rem;
 	}
 
-	.container {
-		max-width: 640px;
-		margin: 0 auto;
-	}
-
 	h1 {
 		color: #fff;
 		font-family: system-ui, sans-serif;
-		font-size: 2rem;
+		font-size: 14px;
 		font-weight: 300;
 		letter-spacing: 0.05em;
 		margin-bottom: 0.5rem;
@@ -158,37 +151,37 @@
 	.updated {
 		color: #666;
 		font-family: system-ui, sans-serif;
-		font-size: 0.875rem;
-		margin-bottom: 3rem;
+		font-size: 11px;
+		margin-bottom: 2rem;
 	}
 
 	section {
-		margin-bottom: 2rem;
+		margin-bottom: 1.5rem;
 	}
 
 	h2 {
 		color: #fff;
 		font-family: system-ui, sans-serif;
-		font-size: 1.125rem;
+		font-size: 12px;
 		font-weight: 500;
-		margin-bottom: 0.75rem;
+		margin-bottom: 0.5rem;
 	}
 
 	p {
 		color: #999;
 		font-family: system-ui, sans-serif;
-		font-size: 0.9375rem;
+		font-size: 11px;
 		line-height: 1.6;
-		margin-bottom: 0.75rem;
+		margin-bottom: 0.5rem;
 	}
 
 	ul {
 		color: #999;
 		font-family: system-ui, sans-serif;
-		font-size: 0.9375rem;
+		font-size: 11px;
 		line-height: 1.6;
 		padding-left: 1.5rem;
-		margin-bottom: 0.75rem;
+		margin-bottom: 0.5rem;
 	}
 
 	li {
@@ -208,7 +201,7 @@
 		display: inline-block;
 		color: #888;
 		font-family: system-ui, sans-serif;
-		font-size: 0.875rem;
+		font-size: 11px;
 		text-decoration: underline;
 		margin-top: 2rem;
 	}
