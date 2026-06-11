@@ -155,7 +155,7 @@
 	{/if}
 
 	<p class="consent-text">
-		First to know when we launch. No spam, just the important stuff.
+		First to know when we launch. Product updates, news, and the occasional exclusive offer.
 		<a href="/privacy" class="privacy-link">See our Privacy Policy</a>
 	</p>
 {/if}

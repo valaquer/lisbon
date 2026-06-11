@@ -5,118 +5,128 @@
 <div class="screen">
 	<div class="container">
 		<h1>Privacy Policy</h1>
-		<p class="updated">Last updated: June 2, 2026</p>
+		<p class="updated">Last updated: June 11, 2026</p>
 
 		<section>
 			<h2>1. Data Controller</h2>
 			<p>
-				Oovar.ai UG (haftungsbeschränkt)<br />
+				Oovar UG (haftungsbeschränkt)<br />
+				Prenzlauer Allee 209a<br />
 				10405 Berlin, Germany<br />
 				Represented by: Deepak Patnaik<br />
-				Email: <a href="mailto:hello@provoque.ai" class="link">hello@provoque.ai</a>
+				Email: <a href="mailto:hello@oovar.ai" class="link">hello@oovar.ai</a>
 			</p>
 		</section>
 
 		<section>
-			<h2>2. What Data We Collect</h2>
+			<h2>2. Purpose and Legal Basis</h2>
+			<p>We use your email address for the following purposes:</p>
+			<ul>
+				<li>Launch updates – notifying you when Provoque AI launches</li>
+				<li>Product news – updates about features and development</li>
+				<li>Occasional exclusive offers – promotional content related to Provoque AI</li>
+			</ul>
+			<p>
+				The legal basis for processing is your explicit consent (GDPR Art. 6(1)(a)),
+				given by submitting the signup form.
+			</p>
+		</section>
+
+		<section>
+			<h2>3. What Data We Collect</h2>
 			<p>When you sign up for the Provoque AI waitlist, we collect:</p>
 			<ul>
 				<li>Your email address</li>
-				<li>Your consent to this privacy policy (checkbox confirmation)</li>
 				<li>Timestamp of your consent</li>
+				<li>Signup status (pending or confirmed)</li>
 			</ul>
 			<p>We do not collect your name, location, or any other personal data.</p>
 		</section>
 
 		<section>
-			<h2>3. Purpose</h2>
-			<p>We use your email address to:</p>
-			<ul>
-				<li>Send you a one-time confirmation email to verify your address</li>
-				<li>Notify you when Provoque AI launches</li>
-			</ul>
-			<p>We will not use your email for any other purpose without your explicit consent.</p>
-		</section>
-
-		<section>
-			<h2>4. Legal Basis</h2>
-			<p>
-				We process your data based on your explicit consent (GDPR Art. 6(1)(a)). You provide
-				this consent by checking the consent checkbox and submitting the signup form.
-			</p>
-		</section>
-
-		<section>
-			<h2>5. Data Processors</h2>
+			<h2>4. Recipients</h2>
 			<p>Your data is processed by the following third-party services:</p>
 			<ul>
 				<li>
-					<strong>Supabase</strong> — database hosting in Frankfurt, Germany (eu-central-1).
-					Stores your email, consent, and signup status. EU data residency.
+					<strong>Supabase</strong> – database hosting in Frankfurt, Germany (eu-central-1).
+					Stores your email, consent timestamp, and signup status.
 				</li>
 				<li>
-					<strong>Resend</strong> — email delivery service (EU region, Ireland). Sends the
-					confirmation email from hello@provoque.ai.
+					<strong>Resend</strong> – email delivery service. Sends the confirmation email
+					from hello@provoque.ai.
 				</li>
 				<li>
-					<strong>Cloudflare</strong> — provides Turnstile bot protection on the signup form.
-					See the Cookies section below.
+					<strong>Cloudflare</strong> – provides Turnstile bot protection on the signup form.
+					The cf_clearance cookie is strictly necessary for the form to function
+					(TTDSG §25(2) Nr. 2).
 				</li>
 				<li>
-					<strong>Vercel</strong> — website hosting. Serves the provoque.ai pages.
+					<strong>Vercel</strong> – website hosting and cookieless analytics.
 				</li>
 			</ul>
 		</section>
 
 		<section>
-			<h2>6. Cookies</h2>
+			<h2>5. Third-Country Transfers</h2>
 			<p>
-				We do not set any first-party cookies. However, Cloudflare Turnstile (our bot
-				protection) may set the following cookies:
-			</p>
-			<ul>
-				<li>
-					<strong>cf_clearance</strong> — confirms you have passed the Turnstile challenge.
-					Expires after 30 minutes.
-				</li>
-				<li>
-					<strong>__cf_bm</strong> — Cloudflare bot management cookie. Expires after 30 minutes.
-				</li>
-			</ul>
-			<p>These cookies are strictly necessary for the signup form to function and cannot be disabled.</p>
-		</section>
-
-		<section>
-			<h2>7. Data Retention</h2>
-			<p>
-				We retain your data until you request its deletion or until Provoque AI launches and
-				the waitlist is no longer needed — whichever comes first. You can request deletion at
-				any time.
+				Resend and Vercel are US-based companies. Data transfers to the United States
+				are covered by the EU-US Data Privacy Framework (adequacy decision of July 10, 2023).
+				Both companies are certified under the framework.
 			</p>
 		</section>
 
 		<section>
-			<h2>8. Your Rights</h2>
+			<h2>6. Retention Period</h2>
+			<p>
+				We retain your data until product launch or until you withdraw your consent –
+				whichever comes first. You can withdraw your consent at any time (see below).
+			</p>
+		</section>
+
+		<section>
+			<h2>7. Your Rights</h2>
 			<p>Under the GDPR, you have the right to:</p>
 			<ul>
-				<li><strong>Access</strong> — request a copy of your data</li>
-				<li><strong>Rectification</strong> — correct inaccurate data</li>
-				<li><strong>Erasure</strong> — request deletion of your data</li>
-				<li><strong>Portability</strong> — receive your data in a structured format</li>
-				<li><strong>Withdraw consent</strong> — at any time, without affecting the lawfulness of prior processing</li>
+				<li><strong>Access</strong> – request a copy of your data</li>
+				<li><strong>Rectification</strong> – correct inaccurate data</li>
+				<li><strong>Erasure</strong> – request deletion of your data</li>
+				<li><strong>Restriction</strong> – restrict the processing of your data</li>
+				<li><strong>Portability</strong> – receive your data in a structured format</li>
+				<li><strong>Objection</strong> – object to processing of your data</li>
 			</ul>
 			<p>
 				To exercise any of these rights, email
-				<a href="mailto:hello@provoque.ai" class="link">hello@provoque.ai</a>.
+				<a href="mailto:hello@oovar.ai" class="link">hello@oovar.ai</a>.
 			</p>
 		</section>
 
 		<section>
-			<h2>9. Supervisory Authority</h2>
+			<h2>8. Right to Withdraw Consent</h2>
+			<p>
+				You can withdraw your consent at any time by clicking the unsubscribe link
+				in any of our emails. Withdrawal does not affect the lawfulness of processing
+				carried out before the withdrawal.
+			</p>
+		</section>
+
+		<section>
+			<h2>9. Right to Lodge a Complaint</h2>
 			<p>
 				You have the right to lodge a complaint with a data protection supervisory authority.
-				The responsible authority for Berlin is the Berliner Beauftragte für Datenschutz und
-				Informationsfreiheit.
+				The responsible authority is:
+			</p>
+			<p>
+				Berliner Beauftragte für Datenschutz und Informationsfreiheit<br />
+				Friedrichstr. 219<br />
+				10969 Berlin
+			</p>
+		</section>
+
+		<section>
+			<h2>10. Voluntary Provision</h2>
+			<p>
+				Providing your email address is voluntary. There are no consequences if you
+				choose not to provide it.
 			</p>
 		</section>
 
