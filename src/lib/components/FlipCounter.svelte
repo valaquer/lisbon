@@ -92,7 +92,7 @@
 		font-family: 'JetBrains Mono', monospace;
 		font-size: 13px;
 		color: #E8E4DF;
-		opacity: 0.4;
+		opacity: 0.8;
 		display: flex;
 		align-items: center;
 		gap: 6px;
