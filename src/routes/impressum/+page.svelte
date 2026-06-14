@@ -9,8 +9,8 @@
 		<section>
 			<p>
 				Oovar UG (haftungsbeschränkt)<br />
-				Prenzlauer Allee 209a<br />
-				10405 Berlin
+				Kolonnenstr. 8<br />
+				10827 Berlin
 			</p>
 		</section>
 
@@ -21,7 +21,7 @@
 
 		<section>
 			<h2>Kontakt</h2>
-			<p>E-Mail: <a href="mailto:hello@oovar.ai" class="link">hello@oovar.ai</a></p>
+			<p>E-Mail: <a href="mailto:hello@provoque.ai" class="link">hello@provoque.ai</a></p>
 		</section>
 
 		<section>

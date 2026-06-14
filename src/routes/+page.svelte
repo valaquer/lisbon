@@ -135,3 +135,6 @@
 
 <!-- Footer: Links + Watermark -->
 <Footer />
+
+<!-- Cache code -->
+<p style="color: #E8E4DF; font-family: Inter, sans-serif; font-size: 12.8px; opacity: 0.2; text-align: center; padding: 8px 0;">5BO</p>

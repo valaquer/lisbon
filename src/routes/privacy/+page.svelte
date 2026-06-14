@@ -10,10 +10,10 @@
 			<h2>1. Data Controller</h2>
 			<p>
 				Oovar UG (haftungsbeschränkt)<br />
-				Prenzlauer Allee 209a<br />
-				10405 Berlin, Germany<br />
+				Kolonnenstr. 8<br />
+				10827 Berlin, Germany<br />
 				Represented by: Deepak Patnaik<br />
-				Email: <a href="mailto:hello@oovar.ai" class="link">hello@oovar.ai</a>
+				Email: <a href="mailto:hello@provoque.ai" class="link">hello@provoque.ai</a>
 			</p>
 		</section>
 
@@ -57,7 +57,7 @@
 				<li>
 					<strong>Cloudflare</strong> – provides Turnstile bot protection on the signup form.
 					The cf_clearance cookie is strictly necessary for the form to function
-					(TTDSG §25(2) Nr. 2).
+					(TDDDG §25(2) Nr. 2).
 				</li>
 				<li>
 					<strong>Vercel</strong> – website hosting and cookieless analytics.
@@ -95,7 +95,7 @@
 			</ul>
 			<p>
 				To exercise any of these rights, email
-				<a href="mailto:hello@oovar.ai" class="link">hello@oovar.ai</a>.
+				<a href="mailto:hello@provoque.ai" class="link">hello@provoque.ai</a>.
 			</p>
 		</section>
 

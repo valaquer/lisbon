@@ -15,7 +15,7 @@
 	<!-- Footer links -->
 	<div style="display: flex; justify-content: center; gap: 32px; margin-bottom: 48px; flex-wrap: wrap;">
 		<a href="/impressum" style="font-family: 'JetBrains Mono', monospace; font-size: 12.8px; color: #E8E4DF; opacity: 0.4; text-decoration: none;">Impressum</a>
-		<a href="mailto:hello@oovar.ai" style="font-family: 'JetBrains Mono', monospace; font-size: 12.8px; color: #E8E4DF; opacity: 0.4; text-decoration: none;">Kontakt</a>
+		<a href="mailto:hello@provoque.ai" style="font-family: 'JetBrains Mono', monospace; font-size: 12.8px; color: #E8E4DF; opacity: 0.4; text-decoration: none;">Kontakt</a>
 		<a href="/privacy" style="font-family: 'JetBrains Mono', monospace; font-size: 12.8px; color: #E8E4DF; opacity: 0.4; text-decoration: none;">Datenschutz</a>
 	</div>
 </div>
