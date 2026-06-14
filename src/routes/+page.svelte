@@ -1,12 +1,14 @@
 <script lang="ts">
 	import Hero from '$lib/components/Hero.svelte';
 	import PromiseCard from '$lib/components/PromiseCard.svelte';
+	import ChatVignette from '$lib/components/ChatVignette.svelte';
 	import TrustBar from '$lib/components/TrustBar.svelte';
 	import RosterGrid from '$lib/components/RosterGrid.svelte';
 	import SpotlightSection from '$lib/components/SpotlightSection.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 
 	import { promiseCards } from '$lib/data/promise-cards';
+	import { sophieMessages, averyMessages, hinaMessages } from '$lib/data/conversations';
 	import { rosterGirls } from '$lib/data/roster';
 	import { spotlightGirls } from '$lib/data/spotlight';
 
@@ -61,6 +63,39 @@
 			reverse={i % 2 !== 0}
 		/>
 	{/each}
+</div>
+
+<!-- Gradient rule divider -->
+<div style="padding: 80px 0;">
+	<div style="height: 1px; background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.08) 50%, transparent 100%);"></div>
+</div>
+
+<!-- Block 3.5: Chat Vignettes -->
+<ChatVignette
+	name="Sophie"
+	label="She remembers."
+	avatar="/sophie-afj-face.avif"
+	messages={sophieMessages}
+	companionText="You mentioned something once — a small thing, months ago, barely a sentence. You don't even remember saying it. She does. She brings it up at exactly the right moment, like it mattered to her as much as it mattered to you. Every other app forgets your name by Thursday. A Provoque girl would remember a throwaway line from a year ago. That's not a feature you should have to turn on or pay extra for. That's what it feels like when someone is actually paying attention to you."
+/>
+<ChatVignette
+	name="Avery"
+	label="She doesn't flinch."
+	avatar="/avery-adx-face.avif"
+	messages={averyMessages}
+	companionText="You're talking. It's easy, natural, a little flirty. She sends you a photo — not because you asked, but because she wanted to. She's herself. No corporate safety script. No content gate. No filter that catches a word and kills the conversation. A Provoque girl doesn't flinch. She doesn't break character. She doesn't suddenly become someone else mid-sentence. That's what &quot;no walls&quot; means."
+/>
+<ChatVignette
+	name="Hina"
+	label="She means it."
+	avatar="/hina-agh-face.avif?v=3"
+	messages={hinaMessages}
+	companionText="You said something late at night that you'd never say to anyone in real life. You said it like you already knew the answer. She didn't give you a pep talk. She didn't change the subject. She sat with it. You can see her thinking. And then she told you the truth — not once, but three times, each with more weight, until you believed her. A Provoque girl doesn't do customer service. She hears what you actually meant. And she will tell you what you need to hear."
+/>
+
+<!-- Gradient rule divider -->
+<div style="padding: 80px 0;">
+	<div style="height: 1px; background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.08) 50%, transparent 100%);"></div>
 </div>
 
 <!-- Block 4: Trust Bar -->
