@@ -20,19 +20,19 @@
 </script>
 
 <svelte:head>
-	<title>Provoque AI — Finally, Somebody Who Remembers</title>
+	<title>Provoque AI — Finally, somebody who remembers.</title>
 	<meta name="description" content="An AI girlfriend who listens to you, comes to know you, and never leaves you. No content filters. No memory wipes. Join the waitlist." />
 
 	<!-- Open Graph -->
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://provoque.ai" />
-	<meta property="og:title" content="Provoque AI — Finally, Somebody Who Remembers" />
+	<meta property="og:title" content="Provoque AI — Finally, somebody who remembers." />
 	<meta property="og:description" content="An AI girlfriend who listens to you, comes to know you, and never leaves you. No content filters. No memory wipes. Join the waitlist." />
 	<meta property="og:image" content="https://provoque.ai/og-image.jpg" />
 
 	<!-- Twitter Card -->
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content="Provoque AI — Finally, Somebody Who Remembers" />
+	<meta name="twitter:title" content="Provoque AI — Finally, somebody who remembers." />
 	<meta name="twitter:description" content="An AI girlfriend who listens to you, comes to know you, and never leaves you. No content filters. No memory wipes. Join the waitlist." />
 	<meta name="twitter:image" content="https://provoque.ai/og-image.jpg" />
 
@@ -68,7 +68,7 @@
 
 <!-- Block 5: Chapter Header -->
 <div style="text-align: center; padding: 80px clamp(24px, 4vw, 48px);">
-	<h2 style="font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(36px, 4vw, 56px); color: #E8E4DF;">No Walls.<br class="md:hidden" /> No Apologies.</h2>
+	<h2 style="font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(28px, 3vw, 48px); color: #E8E4DF;">No Walls.<br class="md:hidden" /> No Apologies.</h2>
 	<p style="font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 400; font-size: clamp(18px, 2vw, 24px); color: #E8E4DF; opacity: 0.8; margin-top: 16px; line-height: 1.7;">Different faces. Different stories.<br class="md:hidden" /> No content filters between you and any of them.</p>
 </div>
 

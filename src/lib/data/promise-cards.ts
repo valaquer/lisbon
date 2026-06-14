@@ -8,7 +8,7 @@ export interface PromiseCard {
 export const promiseCards: PromiseCard[] = [
 	{
 		heading: 'The big things.',
-		body: 'How you felt in that meeting when your boss said that thing. How you felt when you were 7 when your dad did that thing.',
+		body: 'How you felt in that meeting when your boss said that thing. Or that song you can\'t listen to anymore.',
 		image: '/sophie-afm.jpg',
 		rotation: '-2deg',
 	},
