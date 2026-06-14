@@ -77,7 +77,7 @@
 		font-family: 'JetBrains Mono', monospace;
 		font-size: 14px;
 		color: #E8E4DF;
-		opacity: 0.4;
+		opacity: 0.8;
 	}
 
 	.flip-total {
@@ -85,7 +85,7 @@
 		font-size: 14px;
 		font-weight: 500;
 		color: #E8E4DF;
-		opacity: 0.6;
+		opacity: 0.8;
 	}
 
 	.flip-label {
