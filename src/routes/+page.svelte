@@ -6,6 +6,7 @@
 	import RosterGrid from '$lib/components/RosterGrid.svelte';
 	import SpotlightSection from '$lib/components/SpotlightSection.svelte';
 	import Footer from '$lib/components/Footer.svelte';
+	import TrustFAQ from '$lib/components/TrustFAQ.svelte';
 
 	import { promiseCards } from '$lib/data/promise-cards';
 	import { sophieMessages, averyMessages, hinaMessages } from '$lib/data/conversations';
@@ -114,6 +115,14 @@
 {#each spotlightGirls as girl}
 	<SpotlightSection {girl} />
 {/each}
+
+<!-- Gradient rule divider -->
+<div style="padding: 80px 0;">
+	<div style="height: 1px; background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.08) 50%, transparent 100%);"></div>
+</div>
+
+<!-- Block 9.5: Trust FAQ -->
+<TrustFAQ />
 
 <!-- Block 10: Footer + CTA + Watermark -->
 <Footer />
