@@ -107,7 +107,7 @@
 
 	.hero-counter-wrap {
 		position: absolute;
-		bottom: 28px;
+		bottom: 78px;
 		right: -20px;
 		width: 45%;
 		padding: 0 clamp(32px, 4vw, 80px);
