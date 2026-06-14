@@ -76,7 +76,7 @@
 	.hero-content {
 		position: absolute;
 		top: 0;
-		right: 0;
+		right: -10px;
 		bottom: 0;
 		width: 45%;
 		display: flex;
@@ -108,7 +108,7 @@
 	.hero-counter-wrap {
 		position: absolute;
 		bottom: 28px;
-		right: 0;
+		right: -10px;
 		width: 45%;
 		padding: 0 clamp(32px, 4vw, 80px);
 		z-index: 2;
