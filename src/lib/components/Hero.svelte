@@ -1,8 +1,19 @@
 <script lang="ts">
 	import EmailCapture from './EmailCapture.svelte';
+	import FlipCounter from './FlipCounter.svelte';
 	import { onMount } from 'svelte';
-	let vw = $state('');
-	onMount(() => { vw = String(window.innerWidth); });
+
+	let claimedCount = $state(247);
+
+	onMount(async () => {
+		try {
+			const res = await fetch('/api/founding-count');
+			const data = await res.json();
+			if (data.count) claimedCount = data.count;
+		} catch {
+			// fallback to seed
+		}
+	});
 </script>
 
 <section class="hero">
@@ -34,7 +45,11 @@
 		</p>
 
 		<EmailCapture id="hero" />
-		<p style="color: #E8E4DF; font-family: Inter, sans-serif; font-size: 14px; margin-top: 12px;">Cache Code: V2M | vw:{vw}</p>
+	</div>
+
+	<!-- Counter pinned lower in hero, outside the centered flex -->
+	<div class="hero-counter-wrap">
+		<FlipCounter value={claimedCount} total={500} label="Founding Member spots claimed" />
 	</div>
 </section>
 
@@ -88,6 +103,15 @@
 		margin-bottom: 32px;
 	}
 
+	.hero-counter-wrap {
+		position: absolute;
+		bottom: 28px;
+		right: 0;
+		width: 45%;
+		padding: 0 clamp(32px, 4vw, 80px);
+		z-index: 2;
+	}
+
 	@media (max-width: 768px) {
 		.hero {
 			height: auto;
@@ -113,6 +137,14 @@
 			width: 100%;
 			padding: 24px;
 			text-align: center;
+		}
+
+		.hero-counter-wrap {
+			position: relative;
+			bottom: auto;
+			right: auto;
+			width: 100%;
+			padding: 16px 24px;
 		}
 	}
 </style>

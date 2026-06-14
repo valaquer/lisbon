@@ -4,9 +4,10 @@
 
 	interface Props {
 		id?: string;
+		buttonText?: string;
 	}
 
-	let { id }: Props = $props();
+	let { id, buttonText = 'Join the waitlist' }: Props = $props();
 
 	let email = $state('');
 	let status = $state<'idle' | 'loading' | 'success' | 'error' | 'verified'>('idle');
@@ -131,7 +132,7 @@
 			use:shimmerAction
 		>
 			<span style="position: relative; z-index: 1;">
-				{status === 'loading' ? 'Sending...' : 'Join the waitlist'}
+				{status === 'loading' ? 'Sending...' : buttonText}
 			</span>
 			<div data-shimmer style="position: absolute; inset: 0; transform: translateX(-100%); background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.2) 40%, rgba(255,255,255,0.2) 60%, transparent 100%);"></div>
 		</button>

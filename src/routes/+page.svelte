@@ -7,6 +7,7 @@
 	import SpotlightSection from '$lib/components/SpotlightSection.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import TrustFAQ from '$lib/components/TrustFAQ.svelte';
+	import FoundingMember from '$lib/components/FoundingMember.svelte';
 
 	import { promiseCards } from '$lib/data/promise-cards';
 	import { sophieMessages, averyMessages, hinaMessages } from '$lib/data/conversations';
@@ -102,6 +103,11 @@
 <!-- Block 4: Trust Bar -->
 <TrustBar />
 
+<!-- Gradient rule divider -->
+<div style="padding: 80px 0;">
+	<div style="height: 1px; background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.08) 50%, transparent 100%);"></div>
+</div>
+
 <!-- Block 5: Chapter Header -->
 <div style="text-align: center; padding: 80px clamp(24px, 4vw, 48px);">
 	<h2 style="font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(28px, 3vw, 48px); color: #E8E4DF;">No Walls.<br class="md:hidden" /> No Apologies.</h2>
@@ -124,5 +130,8 @@
 <!-- Block 9.5: Trust FAQ -->
 <TrustFAQ />
 
-<!-- Block 10: Footer + CTA + Watermark -->
+<!-- Block 10: Founding Member CTA -->
+<FoundingMember />
+
+<!-- Footer: Links + Watermark -->
 <Footer />
