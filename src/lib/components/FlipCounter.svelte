@@ -102,12 +102,13 @@
 		width: 6px;
 		height: 6px;
 		border-radius: 50%;
-		background-color: #10B981;
-		animation: livePulse 3s ease-in-out infinite;
+		background-color: #34D399;
+		box-shadow: 0 0 6px #34D399;
+		animation: livePulse 1.5s ease-in-out infinite;
 	}
 
 	@keyframes livePulse {
-		0%, 100% { opacity: 0.4; }
+		0%, 100% { opacity: 0.5; }
 		50% { opacity: 1; }
 	}
 </style>
