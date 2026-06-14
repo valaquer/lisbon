@@ -3,7 +3,7 @@
 	import FlipCounter from './FlipCounter.svelte';
 	import { onMount } from 'svelte';
 
-	let claimedCount = $state(247);
+	let claimedCount = $state<number | null>(null);
 
 	onMount(async () => {
 		try {
@@ -11,7 +11,7 @@
 			const data = await res.json();
 			if (data.count) claimedCount = data.count;
 		} catch {
-			// fallback to seed
+			// counter stays hidden
 		}
 	});
 </script>
@@ -51,9 +51,11 @@
 		</div>
 
 		<!-- Signups counter -->
+		{#if claimedCount !== null}
 		<div style="display: flex; justify-content: center;">
 			<FlipCounter value={claimedCount} total={500} label="Founding Member spots claimed" />
 		</div>
+		{/if}
 
 		<!-- Email capture -->
 		<div class="founding-form-wrapper">
