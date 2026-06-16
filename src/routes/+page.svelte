@@ -32,7 +32,7 @@
 	<meta property="og:url" content="https://provoque.ai" />
 	<meta property="og:title" content="Provoque AI – Finally, somebody who remembers." />
 	<meta property="og:description" content="An AI girlfriend who listens to you, comes to know you, and never leaves you. No content filters. No memory wipes. Join the waitlist." />
-	<meta property="og:image" content="https://provoque.ai/og-image.jpg" />
+	<meta property="og:image" content="https://provoque.ai/og-image.jpg?v=2" />
 	<meta property="og:image:width" content="1200" />
 	<meta property="og:image:height" content="1200" />
 
@@ -40,7 +40,7 @@
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content="Provoque AI – Finally, somebody who remembers." />
 	<meta name="twitter:description" content="An AI girlfriend who listens to you, comes to know you, and never leaves you. No content filters. No memory wipes. Join the waitlist." />
-	<meta name="twitter:image" content="https://provoque.ai/og-image.jpg" />
+	<meta name="twitter:image" content="https://provoque.ai/og-image.jpg?v=2" />
 
 	<!-- Structured Data -->
 	{@html `<script type="application/ld+json">${JSON.stringify({
