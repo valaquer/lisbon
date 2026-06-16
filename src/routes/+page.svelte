@@ -33,6 +33,8 @@
 	<meta property="og:title" content="Provoque AI – Finally, somebody who remembers." />
 	<meta property="og:description" content="An AI girlfriend who listens to you, comes to know you, and never leaves you. No content filters. No memory wipes. Join the waitlist." />
 	<meta property="og:image" content="https://provoque.ai/og-image.jpg" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="1200" />
 
 	<!-- Twitter Card -->
 	<meta name="twitter:card" content="summary_large_image" />
@@ -137,4 +139,4 @@
 <Footer />
 
 <!-- Cache code -->
-<p style="color: #E8E4DF; font-family: Inter, sans-serif; font-size: 12.8px; opacity: 0.2; text-align: center; padding: 8px 0;">6AK</p>
+<p style="color: #E8E4DF; font-family: Inter, sans-serif; font-size: 12.8px; opacity: 0.2; text-align: center; padding: 8px 0;">7BL</p>
