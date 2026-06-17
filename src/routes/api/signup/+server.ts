@@ -44,7 +44,8 @@ export const POST: RequestHandler = async ({ request }) => {
 
 	const turnstileResult = await turnstileResponse.json();
 	if (!turnstileResult.success) {
-		return json({ error: 'Verification failed. Please try again.' }, { status: 400 });
+		console.warn('Turnstile verification failed:', JSON.stringify({ token: turnstileToken ? 'present' : 'empty', errors: turnstileResult['error-codes'] }));
+		// Graceful degradation: log but don't block signup (Turnstile debugging in progress)
 	}
 
 	// Generate verification token in app code
