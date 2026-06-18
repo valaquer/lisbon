@@ -31,7 +31,7 @@
 					sitekey: PUBLIC_TURNSTILE_SITE_KEY,
 					callback: (token: string) => { turnstileToken = token; },
 					'expired-callback': () => { turnstileToken = ''; },
-					appearance: 'interaction-only',
+					appearance: 'execute',
 				});
 			} else {
 				setTimeout(renderTurnstile, 100);
