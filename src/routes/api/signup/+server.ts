@@ -59,11 +59,39 @@ export const POST: RequestHandler = async ({ request }) => {
 	});
 
 	if (error) {
-		// Duplicate email (Postgres 23505)
 		if (error.code === '23505') {
-			return json({ error: "You're already signed up!" }, { status: 409 });
+			// Duplicate email — check if existing row is confirmed or pending
+			const admin = getSupabaseAdmin();
+			const { data: existing } = await admin
+				.from('waitlist')
+				.select('status')
+				.eq('email', email)
+				.is('superseded_at', null)
+				.single();
+
+			if (existing?.status === 'confirmed') {
+				return json({ error: "You're already signed up!" }, { status: 409 });
+			}
+
+			// Supersede the pending row and create a new one
+			await admin
+				.from('waitlist')
+				.update({ superseded_at: new Date().toISOString() })
+				.eq('email', email)
+				.is('superseded_at', null);
+
+			const { error: insertError } = await admin.from('waitlist').insert({
+				email,
+				consent_flag: true,
+				verification_token: verificationToken
+			});
+
+			if (insertError) {
+				return json({ error: 'Something went wrong. Please try again.' }, { status: 500 });
+			}
+		} else {
+			return json({ error: 'Something went wrong. Please try again.' }, { status: 500 });
 		}
-		return json({ error: 'Something went wrong. Please try again.' }, { status: 500 });
 	}
 
 	// Send confirmation email (decoupled from INSERT — D9)
@@ -71,9 +99,9 @@ export const POST: RequestHandler = async ({ request }) => {
 	try {
 		await sendVerificationEmail(email, verificationToken);
 		emailSent = true;
-		await getSupabaseAdmin().from('waitlist').update({ resend_status: 'sent' }).eq('email', email);
+		await getSupabaseAdmin().from('waitlist').update({ resend_status: 'sent' }).eq('email', email).is('superseded_at', null);
 	} catch {
-		await getSupabaseAdmin().from('waitlist').update({ resend_status: 'failed' }).eq('email', email);
+		await getSupabaseAdmin().from('waitlist').update({ resend_status: 'failed' }).eq('email', email).is('superseded_at', null);
 	}
 
 	return json({ success: true, emailSent });

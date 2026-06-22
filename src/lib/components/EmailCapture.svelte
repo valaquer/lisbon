@@ -14,6 +14,9 @@
 	let errorMessage = $state('');
 	let honeypot = $state('');
 	let turnstileToken = $state('');
+	let resendStatus = $state<'idle' | 'loading' | 'sent' | 'sorted'>('idle');
+	let resendMessage = $state('');
+	let submittedEmail = $state('');
 	let turnstileContainerId = `turnstile-${id || 'default'}`;
 
 	onMount(() => {
@@ -65,6 +68,7 @@
 			const data = await res.json();
 
 			if (res.ok && data.success) {
+				submittedEmail = email.trim();
 				status = 'success';
 			} else {
 				errorMessage = data.error || 'Something went wrong. Please try again.';
@@ -73,6 +77,23 @@
 		} catch {
 			errorMessage = 'Network error. Please try again.';
 			status = 'error';
+		}
+	}
+
+	async function handleResend() {
+		resendStatus = 'loading';
+		try {
+			const res = await fetch('/api/resend-verification', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ email: submittedEmail }),
+			});
+			const data = await res.json();
+			resendMessage = data.message || data.error || 'Something went wrong.';
+			resendStatus = data.sorted ? 'sorted' : 'sent';
+		} catch {
+			resendMessage = 'Network error. Please try again.';
+			resendStatus = 'idle';
 		}
 	}
 
@@ -112,7 +133,14 @@
 	</div>
 {:else if status === 'success'}
 	<div class="success-message">
-		Check your email to confirm.
+		Check your email to confirm. Check your spam folder too – we're a new sender.
+		{#if resendStatus === 'idle'}
+			<button class="resend-link" onclick={handleResend}>Didn't get it? Resend</button>
+		{:else if resendStatus === 'loading'}
+			<span class="resend-info">Resending...</span>
+		{:else}
+			<span class="resend-info">{resendMessage}</span>
+		{/if}
 	</div>
 {:else}
 	<div class="email-capture">
@@ -221,6 +249,31 @@
 	@keyframes fadeIn {
 		from { opacity: 0; }
 		to { opacity: 1; }
+	}
+
+	.resend-link {
+		display: block;
+		margin-top: 8px;
+		background: none;
+		border: none;
+		color: #E8E4DF;
+		opacity: 0.5;
+		font-family: 'Inter', system-ui, sans-serif;
+		font-size: 12.8px;
+		cursor: pointer;
+		padding: 0;
+		text-decoration: underline;
+	}
+
+	.resend-link:hover {
+		opacity: 0.8;
+	}
+
+	.resend-info {
+		display: block;
+		margin-top: 8px;
+		font-size: 12.8px;
+		opacity: 0.5;
 	}
 
 	.error-text {

@@ -13,7 +13,8 @@ export async function GET() {
 	const admin = getSupabaseAdmin();
 	const { count, error } = await admin
 		.from('waitlist')
-		.select('*', { count: 'exact', head: true });
+		.select('*', { count: 'exact', head: true })
+		.is('superseded_at', null);
 
 	const realCount = error ? 0 : (count ?? 0);
 

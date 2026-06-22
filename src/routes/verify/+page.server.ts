@@ -15,12 +15,16 @@ export const load: PageServerLoad = async ({ url }) => {
 
 	const { data, error } = await supabaseAdmin
 		.from('waitlist')
-		.select('id, status, created_at')
+		.select('id, status, created_at, superseded_at')
 		.eq('verification_token', token)
 		.single();
 
 	if (error || !data) {
 		return { status: 'error', message: 'Invalid or expired verification link.' };
+	}
+
+	if (data.superseded_at) {
+		return { status: 'expired', message: 'This link is no longer valid. Please sign up again to get a fresh link.' };
 	}
 
 	if (data.status === 'confirmed') {
