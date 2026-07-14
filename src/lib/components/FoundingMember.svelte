@@ -1,19 +1,5 @@
 <script lang="ts">
 	import EmailCapture from './EmailCapture.svelte';
-	import FlipCounter from './FlipCounter.svelte';
-	import { onMount } from 'svelte';
-
-	let claimedCount = $state<number | null>(null);
-
-	onMount(async () => {
-		try {
-			const res = await fetch('/api/founding-count');
-			const data = await res.json();
-			if (data.count) claimedCount = data.count;
-		} catch {
-			// counter stays hidden
-		}
-	});
 </script>
 
 <!-- Gradient rule divider -->
@@ -50,12 +36,7 @@
 			<p class="perk-item"><span class="perk-bullet">✦</span> Tell us what you want built</p>
 		</div>
 
-		<!-- Signups counter -->
-		{#if claimedCount !== null}
-		<div style="display: flex; justify-content: center;">
-			<FlipCounter value={claimedCount} total={500} label="Founding Member spots claimed" />
-		</div>
-		{/if}
+		<p style="text-align: center; font-family: 'Inter', system-ui, sans-serif; font-size: 14px; color: #E8E4DF; opacity: 0.8; margin-bottom: 32px;">Founding membership closes at launch; the waitlist gets first claim.</p>
 
 		<!-- Email capture -->
 		<div class="founding-form-wrapper">

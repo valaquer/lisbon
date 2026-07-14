@@ -1,19 +1,5 @@
 <script lang="ts">
 	import EmailCapture from './EmailCapture.svelte';
-	import FlipCounter from './FlipCounter.svelte';
-	import { onMount } from 'svelte';
-
-	let claimedCount = $state<number | null>(null);
-
-	onMount(async () => {
-		try {
-			const res = await fetch('/api/founding-count');
-			const data = await res.json();
-			if (data.count) claimedCount = data.count;
-		} catch {
-			// counter stays hidden
-		}
-	});
 </script>
 
 <section class="hero">
@@ -47,12 +33,9 @@
 		<EmailCapture id="hero" />
 	</div>
 
-	<!-- Counter pinned lower in hero, outside the centered flex -->
-	{#if claimedCount !== null}
 	<div class="hero-counter-wrap">
-		<FlipCounter value={claimedCount} total={500} label="Founding Member spots claimed" />
+		<p style="font-family: 'Inter', system-ui, sans-serif; font-size: 14px; color: #E8E4DF; opacity: 0.8;">Founding membership closes at launch; the waitlist gets first claim.</p>
 	</div>
-	{/if}
 </section>
 
 
