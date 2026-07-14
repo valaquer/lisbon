@@ -20,16 +20,10 @@
 			Be one of the first.
 		</h2>
 
-		<!-- Scarcity line -->
-		<p style="text-align: center; font-family: 'Inter', system-ui, sans-serif; font-size: 16px; color: #E8E4DF; opacity: 0.8; margin-bottom: 32px;">
-			500 founding member spots. When they're gone, they're gone.
-		</p>
-
 		<!-- Perks list -->
 		<div class="perks-label-wrapper"><p style="font-family: 'Inter', system-ui, sans-serif; font-size: 14px; color: #E8E4DF; opacity: 0.8; margin-bottom: 12px;">You get</p></div>
 		<div class="perks-list">
 			<p class="perk-item"><span class="perk-bullet">✦</span> Founding member badge</p>
-			<p class="perk-item"><span class="perk-bullet">✦</span> Your name in the credits</p>
 			<p class="perk-item"><span class="perk-bullet">✦</span> Priority access at launch</p>
 			<p class="perk-item"><span class="perk-bullet">✦</span> Private Discord channel</p>
 			<p class="perk-item"><span class="perk-bullet">✦</span> A seat at the table</p>
@@ -40,7 +34,7 @@
 
 		<!-- Email capture -->
 		<div class="founding-form-wrapper">
-			<EmailCapture id="founding" buttonText="Claim your spot" />
+			<EmailCapture id="founding" buttonText="Get first access" />
 		</div>
 	</div>
 </div>
