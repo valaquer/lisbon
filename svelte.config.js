@@ -10,7 +10,11 @@ const config = {
 		}),
 	],
 	compilerOptions: {
-		runes: ({ filename }) => (filename.split(/[/\\]/).includes('node_modules') ? undefined : true)
+		runes: ({ filename }) => {
+			if (filename.split(/[/\\]/).includes('node_modules')) return undefined;
+			if (filename.endsWith('.md')) return false;
+			return true;
+		}
 	},
 	kit: {
 		adapter: adapter({ runtime: 'nodejs22.x' }),
