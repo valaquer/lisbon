@@ -1,6 +1,6 @@
 # Lisbon -- Architecture
 
-Last updated: 2026-07-25 (Daksh -- full rebuild from file tree)
+Last updated: 2026-07-29 (Daksh -- added blog infrastructure, Onyx B14)
 
 ---
 
@@ -14,7 +14,7 @@ lisbon/                                         # Landing page + waitlist signup
 │   ├── app.html                                # HTML shell: Turnstile script, dark class, sveltekit-preload-data
 │   ├── lib/
 │   │   ├── components/
-│   │   │   ├── Nav.svelte                      # Wordmark SVG + CTA button
+│   │   │   ├── Nav.svelte                      # Wordmark SVG + context-aware Blog/Home link + CTA button
 │   │   │   ├── Hero.svelte                     # Sophie full-bleed bg + headline + EmailCapture
 │   │   │   ├── EmailCapture.svelte             # Reusable email input + CTA (used in Hero + Footer)
 │   │   │   ├── PromiseCard.svelte              # 5 memory-escalation cards, hover-expand, squircle
@@ -30,7 +30,11 @@ lisbon/                                         # Landing page + waitlist signup
 │   │   │   ├── roster.ts                       # 16 girls (4 rows x 4), RosterGirl type
 │   │   │   ├── conversations.ts                # Sophie, Avery, Hina message arrays, ChatMessage type
 │   │   │   ├── promise-cards.ts                # 5 cards with heading, body, image, rotation
-│   │   │   └── spotlight.ts                    # 3 spotlight girls (Valentina, Jiwoo, Adaeze) with photos + labels
+│   │   │   ├── spotlight.ts                    # 3 spotlight girls (Valentina, Jiwoo, Adaeze) with photos + labels
+│   │   │   └── blog/
+│   │   │       ├── manifest.ts                 # ArticleMeta type, getArticles(), getArticleSlugs(), CATEGORIES
+│   │   │       └── posts/
+│   │   │           └── *.md                    # mdsvex markdown articles with frontmatter (slug, title, category, date, author, readTime, heroImage, excerpt, featured)
 │   │   ├── server/
 │   │   │   ├── supabase.ts                     # Two clients: anon (Prefer: return=minimal) + service role via getSupabaseAdmin()
 │   │   │   └── resend.ts                       # sendVerificationEmail(): Resend SDK, hello@provoque.ai, 48h expiry link
@@ -38,7 +42,7 @@ lisbon/                                         # Landing page + waitlist signup
 │   │   │   └── squircle.ts                     # Svelte action: figma-squircle clip-path with ResizeObserver
 │   │   └── index.ts                            # Lib barrel export
 │   └── routes/
-│       ├── +layout.svelte                      # Root layout: imports app.css
+│       ├── +layout.svelte                      # Root layout: imports app.css, derives isBlog from $page.url
 │       ├── +page.svelte                        # Landing page: all blocks in mockup order
 │       ├── +page.ts                            # prerender=true
 │       ├── privacy/
@@ -50,6 +54,12 @@ lisbon/                                         # Landing page + waitlist signup
 │       ├── verify/
 │       │   ├── +page.server.ts                 # Token verify: 48h expiry, superseded check, token nullification, redirect to /?verified=true
 │       │   └── +page.svelte                    # Verification status page
+│       ├── blog/
+│       │   ├── +page.svelte                    # Blog listing: featured card, category pills, 3-col article grid
+│       │   ├── +page.ts                        # prerender=true, loads articles from manifest
+│       │   └── [slug]/
+│       │       ├── +page.svelte                # Article template: hero image, body, CTA, related posts
+│       │       └── +page.ts                    # prerender=true, entries() for static generation, loads article + related
 │       └── api/
 │           ├── signup/
 │           │   └── +server.ts                  # POST: honeypot + email validation + Turnstile verify + Supabase INSERT + re-signup supersede + Resend email
@@ -81,9 +91,9 @@ lisbon/                                         # Landing page + waitlist signup
 │   └── migrations/
 │       ├── 20260601000000_create_waitlist.sql   # waitlist table, RLS, anon INSERT policy
 │       └── 20260622000000_add_superseded.sql    # superseded_at column, partial unique index, resend_count
-├── svelte.config.js                            # Vercel adapter (nodejs22.x), runes mode
+├── svelte.config.js                            # Vercel adapter (nodejs22.x), mdsvex preprocessor (.md), runes disabled for .md files
 ├── vite.config.ts                              # Vite with Svelte + Tailwind plugins
-├── package.json                                # SvelteKit 2.57, Svelte 5.55, Supabase JS, GSAP, Resend, figma-squircle, Vercel Analytics
+├── package.json                                # SvelteKit 2.57, Svelte 5.55, Supabase JS, GSAP, Resend, figma-squircle, Vercel Analytics, mdsvex
 └── tsconfig.json
 ```
 
@@ -148,7 +158,29 @@ GET /api/founding-count (+server.ts)
 FlipCounter.svelte → fetches /api/founding-count → animated digit display
 ```
 
-### 4. Static Pages Cluster
+### 4. Blog Cluster
+
+```
+routes/blog/+page.svelte (listing)
+  ├── +page.ts → getArticles() from manifest.ts
+  │     └── import.meta.glob('/src/lib/data/blog/posts/*.md')
+  ├── CATEGORIES filter (category pills)
+  └── featured card + article grid → links to /blog/[slug]
+
+routes/blog/[slug]/+page.svelte (article)
+  ├── +page.ts → entries() for prerender, loads article + related
+  │     └── import.meta.glob('/src/lib/data/blog/posts/*.md')
+  ├── article.heroImage (from static/)
+  ├── Content component (mdsvex-rendered markdown)
+  ├── CTA → /#hero-email (cross-links to landing page)
+  └── related posts grid (up to 3)
+
++layout.svelte
+  └── $page.url.pathname.startsWith('/blog') → isBlog
+        └── Nav.svelte({ isBlog }) → Blog/Home link swap
+```
+
+### 5. Static Pages Cluster
 
 ```
 routes/privacy/+page.svelte (prerendered)
@@ -228,7 +260,10 @@ waitlist
 | lib/data/spotlight.ts | — | SpotlightSection.svelte | 3 spotlight girls + photos |
 | lib/utils/squircle.ts | figma-squircle | PromiseCard.svelte | Clip-path rendering |
 | api/founding-count/+server.ts | supabase.ts (admin) | FlipCounter.svelte | Counter display -- contains SEED=247 |
-| static/* images | — | All visual components | Broken images if renamed/moved. AVIF + JPG pairs |
+| lib/data/blog/manifest.ts | import.meta.glob (posts/*.md) | blog/+page.ts, blog/[slug]/+page.ts | Article listing + routing |
+| lib/data/blog/posts/*.md | — | manifest.ts (via glob) | Blog content. Frontmatter schema must match ArticleMeta |
+| svelte.config.js (mdsvex) | mdsvex package | All .md files in routes | Preprocessor for markdown. Runes disabled for .md files |
+| static/* images | — | All visual components + blog heroImage | Broken images if renamed/moved. AVIF + JPG pairs |
 
 ### Cross-Repo Dependencies
 
@@ -255,3 +290,5 @@ waitlist
 | No duplicate signup UX | Expected | Open item, same blocker |
 | EmailCapture wiring varies | Reference | Wired to POST /api/signup in FoundingMember and Footer. Visual-only in Hero |
 | Resend capped at 1 per email | Design | resend-verification endpoint returns "we'll sort it out" message after first resend |
+| Nav CTA design pending | Low | Pill vs 8px border-radius -- pending Andrea clarification |
+| Blog has 1 sample article | Expected | "Why Your AI Companion Forgets" -- Kirby's team produces content |
