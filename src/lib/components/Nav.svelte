@@ -1,20 +1,34 @@
-<nav class="nav-bar">
-	<img src="/provoque-wordmark.svg" alt="provoque" class="nav-logo" />
+<script>
+	let { isBlog = false } = $props();
+</script>
 
-	<button
-		class="nav-cta"
-		onclick={() => {
-			const el = document.getElementById('hero-email');
-			if (el) {
-				el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-				setTimeout(() => el.focus(), 600);
-			} else {
-				window.location.href = '/#hero-email';
-			}
-		}}
-	>
-		Join the waitlist
-	</button>
+<nav class="nav-bar">
+	<a href={isBlog ? '/blog' : '/'}>
+		<img src="/provoque-wordmark.svg" alt="provoque" class="nav-logo" />
+	</a>
+
+	<div class="nav-links">
+		{#if isBlog}
+			<a href="/" class="nav-link">Home</a>
+		{:else}
+			<a href="/blog" class="nav-link">Blog</a>
+		{/if}
+
+		<button
+			class="nav-cta"
+			onclick={() => {
+				const el = document.getElementById('hero-email');
+				if (el) {
+					el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+					setTimeout(() => el.focus(), 600);
+				} else {
+					window.location.href = '/#hero-email';
+				}
+			}}
+		>
+			Join the waitlist
+		</button>
+	</div>
 </nav>
 
 <style>
@@ -36,6 +50,24 @@
 	.nav-logo {
 		height: 32px !important;
 		width: auto !important;
+	}
+
+	.nav-links {
+		display: flex;
+		align-items: center;
+		gap: 20px;
+	}
+
+	.nav-link {
+		font-family: 'Inter', system-ui, sans-serif;
+		font-size: 13px;
+		color: rgba(232, 228, 223, 0.5);
+		text-decoration: none;
+		transition: color 0.2s;
+	}
+
+	.nav-link:hover {
+		color: #E8E4DF;
 	}
 
 	.nav-cta {

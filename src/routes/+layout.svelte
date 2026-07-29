@@ -2,10 +2,12 @@
 	import '../app.css';
 	import Nav from '$lib/components/Nav.svelte';
 	import { injectAnalytics } from '@vercel/analytics/sveltekit';
+	import { page } from '$app/stores';
 
 	injectAnalytics({ mode: 'auto' });
 
 	let { children } = $props();
+	let isBlog = $derived($page.url.pathname.startsWith('/blog'));
 
 	function rulerTool(node: HTMLElement) {
 		if (window.innerWidth <= 768) return { destroy() {} };
@@ -130,7 +132,7 @@
 <!-- Rulers hidden — uncomment to enable -->
 <!-- <div use:rulerTool style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 9998; pointer-events: none;"></div> -->
 
-<Nav />
+<Nav {isBlog} />
 <div class="page-content">
 	{@render children()}
 </div>
