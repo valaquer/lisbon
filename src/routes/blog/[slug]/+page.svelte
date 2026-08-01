@@ -167,7 +167,9 @@
 
 	.article-body :global(img) {
 		width: 100%;
-		height: auto;
+		aspect-ratio: 9 / 16;
+		object-fit: cover;
+		object-position: center 20%;
 		border-radius: 24px;
 		margin: 48px 0;
 	}

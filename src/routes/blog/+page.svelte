@@ -239,6 +239,10 @@
 		object-position: center 20%;
 	}
 
+	.article-card .card-category {
+		font-size: 10px;
+	}
+
 	.article-card h3 {
 		font-family: 'Cormorant Garamond', Georgia, serif;
 		font-size: 20px;

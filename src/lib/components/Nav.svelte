@@ -41,14 +41,15 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding: 16px 48px;
+		padding: 16px 24px;
 		background: rgba(11, 13, 16, 0.85);
 		backdrop-filter: blur(12px);
 		-webkit-backdrop-filter: blur(12px);
+		border-bottom: 1px solid rgba(232, 228, 223, 0.08);
 	}
 
 	.nav-logo {
-		height: 32px !important;
+		height: 28px !important;
 		width: auto !important;
 	}
 
@@ -75,7 +76,7 @@
 		background-color: #AE0D46;
 		color: #E8E4DF;
 		border: none;
-		border-radius: 8px;
+		border-radius: 20px;
 		font-family: 'Inter', system-ui, sans-serif;
 		font-size: 0.85rem;
 		font-weight: 500;
