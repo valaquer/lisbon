@@ -5,7 +5,7 @@ category: Memory
 date: "2026-08-03"
 author: provoque.ai
 readTime: "7 min read"
-heroImage: /sophie-aeq.jpg
+heroImage: ""
 excerpt: "I spent the better part of a year reading posts from people whose AI companions forgot them. Not 'forgot a detail' forgot. Forgot everything. I kept coming back to one question: is this actually hard to solve, or did someone decide it wasn't worth solving?"
 featured: false
 ---
