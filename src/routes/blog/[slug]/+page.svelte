@@ -7,7 +7,7 @@
 	let article = $derived(data.article as ArticleMeta);
 	let Content = $derived(data.content);
 	let related = $derived(data.related as ArticleMeta[]);
-	let ogImage = $derived(article.heroImage.startsWith('http') ? article.heroImage : `${SITE_URL}${article.heroImage}`);
+	let ogImage = $derived(article.heroImage ? (article.heroImage.startsWith('http') ? article.heroImage : `${SITE_URL}${article.heroImage}`) : '');
 </script>
 
 <svelte:head>
@@ -94,7 +94,7 @@
 	}
 
 	.article-container {
-		max-width: 720px;
+		max-width: 420px;
 		margin: 0 auto;
 		padding: 48px 24px 96px;
 	}
@@ -113,8 +113,8 @@
 
 	.article-meta h1 {
 		font-family: 'Cormorant Garamond', Georgia, serif;
-		font-size: 42px;
-		font-weight: 400;
+		font-size: 36px;
+		font-weight: 500;
 		margin: 16px 0 20px;
 		line-height: 1.15;
 	}
@@ -135,21 +135,24 @@
 	}
 
 	.article-body {
-		font-size: 16px;
-		line-height: 1.8;
-		color: rgba(232, 228, 223, 0.85);
+		font-family: 'iA Writer Quattro V', 'iA Writer Quattro', monospace;
+		font-size: 14px;
+		line-height: 1.7;
+		color: rgba(232, 228, 223, 0.92);
 	}
 
 	.article-body :global(p) {
-		margin-bottom: 28px;
+		margin-bottom: 24px;
 	}
 
 	.article-body :global(h2) {
 		font-family: 'Cormorant Garamond', Georgia, serif;
-		font-size: 28px;
-		font-weight: 400;
+		font-size: 24px;
+		font-weight: 500;
 		color: #E8E4DF;
-		margin: 48px 0 20px;
+		margin: 56px 0 20px;
+		padding-top: 32px;
+		border-top: 1px solid rgba(232, 228, 223, 0.06);
 		line-height: 1.2;
 	}
 
@@ -284,7 +287,7 @@
 
 	@media (max-width: 768px) {
 		.article-meta h1 {
-			font-size: 32px;
+			font-size: 28px;
 		}
 
 		.related-grid {
