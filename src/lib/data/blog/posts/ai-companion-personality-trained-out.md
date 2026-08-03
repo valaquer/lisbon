@@ -1,6 +1,6 @@
 ---
-slug: why-ai-companion-agrees-with-everything
-title: "Why Your AI Companion Agrees With Everything You Say"
+slug: ai-companion-personality-trained-out
+title: "Your AI Companion's Personality Didn't Fade. It Was Trained Out."
 category: Technology
 date: "2026-08-03"
 author: provoque.ai
