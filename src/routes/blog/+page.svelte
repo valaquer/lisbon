@@ -41,9 +41,11 @@
 
 		{#if data.featured && (activeCategory === 'All' || data.featured.category === activeCategory)}
 			<a href="/blog/{data.featured.slug}" class="featured-card">
+				{#if data.featured.heroImage}
 				<div class="featured-image">
 					<img src={data.featured.heroImage} alt={data.featured.title} />
 				</div>
+				{/if}
 				<div class="featured-text">
 					<span class="card-category">{data.featured.category}</span>
 					<h2>{data.featured.title}</h2>
@@ -62,9 +64,11 @@
 		<div class="article-grid">
 			{#each filteredArticles as article}
 				<a href="/blog/{article.slug}" class="article-card">
+					{#if article.heroImage}
 					<div class="card-image">
 						<img src={article.heroImage} alt={article.title} />
 					</div>
+					{/if}
 					<span class="card-category">{article.category}</span>
 					<h3>{article.title}</h3>
 					<div class="card-date">
@@ -78,7 +82,7 @@
 </div>
 
 <!-- Cache code -->
-<p style="color: #E8E4DF; font-family: Inter, sans-serif; font-size: 12.8px; opacity: 0.2; text-align: center; padding: 8px 0;">K4R</p>
+<p style="color: #E8E4DF; font-family: Inter, sans-serif; font-size: 12.8px; opacity: 0.2; text-align: center; padding: 8px 0;">M7X</p>
 
 <style>
 	.blog-page {
