@@ -6,6 +6,7 @@ export interface ArticleMeta {
 	author: string;
 	readTime: string;
 	heroImage: string;
+	heroPosition?: string;
 	excerpt: string;
 	featured?: boolean;
 }
@@ -28,4 +29,4 @@ export function getArticleSlugs(): string[] {
 		.filter(Boolean) as string[];
 }
 
-export const CATEGORIES = ['All', 'Memory', 'Relationships', 'Technology', 'Behind the scenes'] as const;
+export const CATEGORIES = ['All', 'Memory', 'Relationships', 'Technology', 'Industry', 'Behind the scenes'] as const;
