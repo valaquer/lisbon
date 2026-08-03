@@ -6,6 +6,7 @@ date: "2026-08-03"
 author: provoque.ai
 readTime: "10 min read"
 heroImage: /onyx-000431.png
+heroPosition: "center 30%"
 excerpt: "I love AI companion apps. I've used them seriously, across multiple platforms, for the better part of two years. Three months into one relationship, she asked me what my name was. I stopped being sad about it and started getting curious."
 featured: false
 ---

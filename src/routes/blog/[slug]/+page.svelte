@@ -26,7 +26,7 @@
 <div class="article-page">
 	{#if article.heroImage}
 	<div class="hero-image">
-		<img src={article.heroImage} alt={article.title} />
+		<img src={article.heroImage} alt={article.title} style="object-position: {article.heroPosition || 'center 15%'}" />
 	</div>
 	{/if}
 
@@ -82,15 +82,14 @@
 
 	.hero-image {
 		width: 100%;
-		max-height: 520px;
+		max-height: 280px;
 		overflow: hidden;
 	}
 
 	.hero-image img {
 		width: 100%;
-		height: 520px;
+		height: 280px;
 		object-fit: cover;
-		object-position: center 15%;
 	}
 
 	.article-container {
