@@ -198,6 +198,41 @@
 		display: block;
 	}
 
+	.article-body :global(a) {
+		color: #AE0D46;
+		text-decoration: underline;
+		text-underline-offset: 2px;
+	}
+
+	.article-body :global(a:hover) {
+		color: #E8E4DF;
+	}
+
+	.article-body :global(sup) {
+		font-size: 10px;
+		color: #AE0D46;
+		font-family: 'JetBrains Mono', monospace;
+	}
+
+	.article-body :global(hr) {
+		border: none;
+		border-top: 1px solid rgba(232, 228, 223, 0.08);
+		margin: 48px 0 24px;
+	}
+
+	.article-body :global(ol) {
+		padding-left: 20px;
+		margin: 24px 0;
+		font-family: 'JetBrains Mono', monospace;
+		font-size: 11px;
+		color: rgba(232, 228, 223, 0.5);
+		line-height: 1.6;
+	}
+
+	.article-body :global(ol li) {
+		margin-bottom: 8px;
+	}
+
 	.article-body :global(.takeaway p) {
 		font-size: 14px;
 		color: rgba(232, 228, 223, 0.7);
