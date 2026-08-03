@@ -24,9 +24,11 @@
 </svelte:head>
 
 <div class="article-page">
+	{#if article.heroImage}
 	<div class="hero-image">
 		<img src={article.heroImage} alt={article.title} />
 	</div>
+	{/if}
 
 	<div class="article-container">
 		<div class="article-meta">
@@ -56,9 +58,11 @@
 				<div class="related-grid">
 					{#each related as post}
 						<a href="/blog/{post.slug}" class="related-card">
+							{#if post.heroImage}
 							<div class="related-image">
 								<img src={post.heroImage} alt={post.title} />
 							</div>
+							{/if}
 							<h4>{post.title}</h4>
 							<span class="related-date">{post.date}</span>
 						</a>
