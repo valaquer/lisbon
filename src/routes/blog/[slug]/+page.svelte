@@ -8,6 +8,10 @@
 	let Content = $derived(data.content);
 	let related = $derived(data.related as ArticleMeta[]);
 	let ogImage = $derived(article.heroImage ? (article.heroImage.startsWith('http') ? article.heroImage : `${SITE_URL}${article.heroImage}`) : '');
+
+	let posX = $state(50);
+	let posY = $state(30);
+	let heroPos = $derived(`${posX}% ${posY}%`);
 </script>
 
 <svelte:head>
@@ -26,7 +30,12 @@
 <div class="article-page">
 	{#if article.heroImage}
 	<div class="hero-image">
-		<img src={article.heroImage} alt={article.title} style="object-position: {article.heroPosition || 'center 15%'}" />
+		<img src={article.heroImage} alt={article.title} style="object-position: {heroPos}" />
+	</div>
+	<div class="hero-controls">
+		<label>X: <input type="range" min="0" max="100" bind:value={posX} /> {posX}%</label>
+		<label>Y: <input type="range" min="0" max="100" bind:value={posY} /> {posY}%</label>
+		<span class="pos-value">object-position: {heroPos}</span>
 	</div>
 	{/if}
 
@@ -74,6 +83,41 @@
 </div>
 
 <style>
+	.hero-controls {
+		position: fixed;
+		bottom: 20px;
+		right: 20px;
+		background: rgba(30, 30, 40, 0.95);
+		border: 1px solid rgba(232, 228, 223, 0.15);
+		border-radius: 12px;
+		padding: 16px 20px;
+		z-index: 100;
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		font-family: 'JetBrains Mono', monospace;
+		font-size: 12px;
+		color: rgba(232, 228, 223, 0.8);
+		backdrop-filter: blur(12px);
+	}
+
+	.hero-controls label {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+	}
+
+	.hero-controls input[type="range"] {
+		width: 160px;
+		accent-color: #AE0D46;
+	}
+
+	.pos-value {
+		color: #AE0D46;
+		font-size: 11px;
+		margin-top: 4px;
+	}
+
 	.article-page {
 		background: #0B0D10;
 		min-height: 100vh;
