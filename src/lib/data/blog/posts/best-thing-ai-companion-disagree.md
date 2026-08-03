@@ -5,7 +5,7 @@ category: Relationships
 date: "2026-08-03"
 author: provoque.ai
 readTime: "6 min read"
-heroImage: /sophie-aeq.jpg
+heroImage: ""
 excerpt: "The thing that bothers people most isn't when the conversation goes wrong. It's when it never goes wrong at all. Unconditional agreement sounds like support. It's actually the opposite."
 featured: false
 ---

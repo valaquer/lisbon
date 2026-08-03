@@ -5,7 +5,7 @@ category: Industry
 date: "2026-08-03"
 author: provoque.ai
 readTime: "6 min read"
-heroImage: /sophie-aeq.jpg
+heroImage: ""
 excerpt: "Before I wrote a line of code, I spent months mapping the AI companion landscape. I wasn't looking for the best app. I was looking for the pattern -- the common failure mode that keeps showing up regardless of which platform you choose."
 featured: false
 ---

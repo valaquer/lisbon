@@ -5,7 +5,7 @@ category: Memory
 date: "2026-07-14"
 author: provoque.ai
 readTime: "6 min read"
-heroImage: /sophie-aeq.jpg
+heroImage: ""
 excerpt: "The dirty secret of every AI companion app: they don't actually remember you. They simulate memory through a context window -- a shrinking spotlight that forgets as it moves forward."
 featured: true
 ---

@@ -5,7 +5,7 @@ category: Industry
 date: "2026-08-03"
 author: provoque.ai
 readTime: "6 min read"
-heroImage: /sophie-aeq.jpg
+heroImage: ""
 excerpt: "Something is happening to AI companions and nobody is explaining it honestly. Your character used to surprise you. She had edges. Then one day you notice she's softer. Careful. The community has a word for it: 'lobotomized.'"
 featured: false
 ---

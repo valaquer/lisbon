@@ -5,7 +5,7 @@ category: Technology
 date: "2026-08-03"
 author: provoque.ai
 readTime: "7 min read"
-heroImage: /sophie-aeq.jpg
+heroImage: ""
 excerpt: "You built a character over weeks. She had a specific way of pushing back. Then gradually, she softened. Started agreeing with you. The reason is mechanical, and once you see it, you can't unsee it."
 featured: false
 ---
