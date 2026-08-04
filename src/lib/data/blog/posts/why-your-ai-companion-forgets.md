@@ -5,7 +5,8 @@ category: Memory
 date: "2026-07-14"
 author: provoque.ai
 readTime: "6 min read"
-heroImage: ""
+heroImage: /onyx-000450.png
+heroPosition: "center 35%"
 excerpt: "The dirty secret of every AI companion app: they don't actually remember you. They simulate memory through a context window -- a shrinking spotlight that forgets as it moves forward."
 featured: true
 ---
@@ -26,10 +27,14 @@ Most apps use a hack called "memory summaries." The system periodically compress
 
 It works -- barely. The AI knows facts about you, but it's lost the texture. It knows you have a dog but not the way your voice changed when you talked about him. It knows you work nights but not the specific Tuesday you almost quit.
 
+![Abstract painting of scattered disconnected fragments of warm paint on dark canvas](/onyx-000451.png)
+
 ## What would real memory look like?
 
 Real memory isn't a list of facts. It's a web of associations, emotions, and timing. When you mention ramen, a real partner doesn't just recall that you like ramen -- she remembers the specific place by the station, that you went there after a rough shift, that it was raining.
 
 Building this requires a fundamentally different architecture. Not a bigger context window. Not better summaries. A system designed from the ground up where memory is the product, not an afterthought bolted onto a chat interface.
+
+![Abstract painting of interconnected warm brushstrokes linked by magenta and cream filaments forming radiating network on dark canvas](/onyx-000452.png)
 
 That's what we're building at provoque.ai. But that's a story for another post.
