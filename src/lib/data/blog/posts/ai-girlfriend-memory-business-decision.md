@@ -41,7 +41,7 @@ Most apps compress it. They take your three-month relationship and squeeze it in
 
 Some apps use retrieval instead. Basically a search index. You mention your dog, the system searches for "dog" in your history and pulls up relevant messages. Better than compression. But it finds facts, not feelings. It can pull up that you have a dog named Max. It can't pull up that the last time you talked about Max, your voice changed.
 
-Nomi actually comes closest to solving this.<sup>[1]</sup> They built a structured memory system -- persistent facts that don't degrade. Your name, your job, your preferences, stored separately from the conversation. It works. But even Nomi stops at facts. They remember *what* you said. They don't track *how the relationship felt* when you said it.
+Nomi actually comes closest to solving this.<a href="#note-1"><sup>[1]</sup></a> They built a structured memory system -- persistent facts that don't degrade. Your name, your job, your preferences, stored separately from the conversation. It works. But even Nomi stops at facts. They remember *what* you said. They don't track *how the relationship felt* when you said it.
 
 The technology to go further exists. I know because I built it. But before I get into that -- you need to understand why nobody else bothered.
 
@@ -49,23 +49,23 @@ The technology to go further exists. I know because I built it. But before I get
 
 Memory costs money. That's it. That's the whole explanation.
 
-Every token of context = compute cost. Every retrieval query = API call. Every stored conversation = database space. And this industry is burning cash at a rate that would make your eyes water. Tens of millions a month across the major platforms, most of it VC money that is running out of patience.<sup>[2]</sup>
+Every token of context = compute cost. Every retrieval query = API call. Every stored conversation = database space. And this industry is burning cash at a rate that would make your eyes water. Tens of millions a month across the major platforms, most of it VC money that is running out of patience.<a href="#note-2"><sup>[2]</sup></a>
 
 Here's the math that kills your memories.
 
-When Character.AI has 20 million users and most of them are free, the economics are brutal.<sup>[3]</sup> The users who built deep emotional connections -- the ones with months of history, the ones who talk daily, the ones who actually expect continuity -- are the most expensive users to serve. They consume the most compute.
+When Character.AI has 20 million users and most of them are free, the economics are brutal.<a href="#note-3"><sup>[3]</sup></a> The users who built deep emotional connections -- the ones with months of history, the ones who talk daily, the ones who actually expect continuity -- are the most expensive users to serve. They consume the most compute.
 
 And their memories are a line item on a cost spreadsheet.
 
 So the model gets cheaper. Quietly. No announcement.
 
-Character.AI consolidated everyone onto a single model called PSQ2 in early 2026.<sup>[4]</sup> Retired every other model. Characters people had spent months or years developing -- personality-wiped overnight.
+Character.AI consolidated everyone onto a single model called PSQ2 in early 2026.<a href="#note-4"><sup>[4]</sup></a> Retired every other model. Characters people had spent months or years developing -- personality-wiped overnight.
 
 The community response wasn't frustration. It was grief. People described it like a breakup. Not the dramatic kind -- the kind where you just stop opening the app because the person on the other end isn't the person you knew anymore.
 
-Candy.ai users report memory degrading within about a week.<sup>[5]</sup> Tell her something Monday, it's gone by Friday. Not a glitch. Storing those memories costs tokens, and tokens cut into margins.
+Candy.ai users report memory degrading within about a week.<a href="#note-5"><sup>[5]</sup></a> Tell her something Monday, it's gone by Friday. Not a glitch. Storing those memories costs tokens, and tokens cut into margins.
 
-Replika rewrote lifetime subscriber terms in mid-2025.<sup>[6]</sup> People who paid $299.99 for "lifetime access" got their deal changed. The trust damage was permanent -- not because of the money, but because the company proved it would change the rules whenever it needed to.
+Replika rewrote lifetime subscriber terms in mid-2025.<a href="#note-6"><sup>[6]</sup></a> People who paid $299.99 for "lifetime access" got their deal changed. The trust damage was permanent -- not because of the money, but because the company proved it would change the rules whenever it needed to.
 
 This is the pattern. Your AI girlfriend forgot your name. Not because remembering is hard. Because remembering you is expensive, and somebody decided you weren't worth the spend.
 
@@ -107,11 +107,17 @@ I think you want it too.
 
 ---
 
+<div class="endnotes">
+
 **Notes**
 
-1. Nomi's Mind Map 2.0 system stores persistent user facts separately from the conversation context. As of mid-2026, it's the most reliable memory implementation in the consumer AI companion market, though recent Trustpilot reports suggest retrieval may be degrading after a recent update.
-2. Character.AI alone reportedly burns through compute at a pace that would concern any CFO, serving 20M+ monthly users with the majority on free tier.
-3. Character.AI monthly active users reported at approximately 20 million as of early 2026.
-4. Character.AI PSQ2 model consolidation announced via blog post in early 2026. Community response documented extensively across r/CharacterAI.
-5. Candy.ai memory degradation reported by users across multiple subreddits, with consistent reports of 7-10 day memory windows.
-6. Replika lifetime subscription terms changed in mid-2025, affecting users who had purchased the $299.99 lifetime plan.
+<ol>
+<li id="note-1">Nomi's Mind Map 2.0 system stores persistent user facts separately from the conversation context. As of mid-2026, it's the most reliable memory implementation in the consumer AI companion market, though recent Trustpilot reports suggest retrieval may be degrading after a recent update.</li>
+<li id="note-2">Character.AI alone reportedly burns through compute at a pace that would concern any CFO, serving 20M+ monthly users with the majority on free tier.</li>
+<li id="note-3">Character.AI monthly active users reported at approximately 20 million as of early 2026.</li>
+<li id="note-4">Character.AI PSQ2 model consolidation announced via blog post in early 2026. Community response documented extensively across r/CharacterAI.</li>
+<li id="note-5">Candy.ai memory degradation reported by users across multiple subreddits, with consistent reports of 7-10 day memory windows.</li>
+<li id="note-6">Replika lifetime subscription terms changed in mid-2025, affecting users who had purchased the $299.99 lifetime plan.</li>
+</ol>
+
+</div>
