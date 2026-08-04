@@ -221,16 +221,31 @@
 	}
 
 	.article-body :global(ol) {
-		padding-left: 20px;
+		padding-left: 24px;
 		margin: 24px 0;
 		font-family: 'JetBrains Mono', monospace;
 		font-size: 11px;
 		color: rgba(232, 228, 223, 0.5);
 		line-height: 1.6;
+		list-style-type: decimal;
 	}
 
 	.article-body :global(ol li) {
 		margin-bottom: 8px;
+		display: list-item;
+	}
+
+	.article-body :global(ol li::marker) {
+		color: #AE0D46;
+	}
+
+	.article-body :global(sup a) {
+		color: #AE0D46;
+		text-decoration: none;
+	}
+
+	.article-body :global(sup a:hover) {
+		text-decoration: underline;
 	}
 
 	.article-body :global(.takeaway p) {
