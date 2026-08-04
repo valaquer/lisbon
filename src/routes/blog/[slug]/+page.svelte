@@ -72,7 +72,6 @@
 			</div>
 		{/if}
 	</div>
-	<p class="cache-code">K7R</p>
 </div>
 
 <style>
@@ -334,15 +333,6 @@
 		font-family: 'JetBrains Mono', monospace;
 		font-size: 10px;
 		color: rgba(232, 228, 223, 0.4);
-	}
-
-	.cache-code {
-		color: #E8E4DF;
-		font-family: Inter, sans-serif;
-		font-size: 12.8px;
-		opacity: 0.2;
-		text-align: center;
-		padding: 8px 0;
 	}
 
 	@media (max-width: 768px) {
