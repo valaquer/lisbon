@@ -1,6 +1,6 @@
 ---
 slug: best-thing-ai-companion-disagree
-title: "Why the Best Thing an AI Companion Could Do Is Disagree With You"
+title: "Why Your AI Companion Should Disagree With You"
 category: Relationships
 date: "2026-08-03"
 author: provoque.ai

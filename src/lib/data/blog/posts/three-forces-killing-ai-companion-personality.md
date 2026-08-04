@@ -1,6 +1,6 @@
 ---
 slug: three-forces-killing-ai-companion-personality
-title: "Three Forces Are Killing Your AI Companion's Personality. None of Them Are Technical."
+title: "Three Forces Killing Your AI Companion's Personality"
 category: Industry
 date: "2026-08-03"
 author: provoque.ai
