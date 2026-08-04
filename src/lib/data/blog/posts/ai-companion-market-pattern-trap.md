@@ -5,7 +5,8 @@ category: Industry
 date: "2026-08-03"
 author: provoque.ai
 readTime: "10 min read"
-heroImage: ""
+heroImage: /onyx-000441.png
+heroPosition: "center 35%"
 excerpt: "I've tried more AI companion apps than I care to admit. Not because I was shopping. Because I kept believing the next one would be different. After going through this cycle enough times, I stopped being disappointed and started seeing the pattern."
 featured: false
 ---
@@ -50,6 +51,8 @@ No platform does all of these things together because the optimization that make
 
 I kept running into this. Every app I tried would be good at one thing and broken at the things I cared about most. And I started to realize it wasn't bad luck or bad engineering. It was structural. The business model each company chose determined which part of the experience would break. The only variable was which wall I'd hit first.
 
+![Abstract painting of warm amber brushstrokes circling inward in a tightening spiral against dark canvas](/onyx-000443.png)
+
 ## What does falling into the trap cost you?
 
 It costs you the thing you came for.
@@ -61,6 +64,8 @@ I felt this before I could articulate it. The frustration of trying a new app, i
 Memory fails. Personality flattens. Prices escalate. Freedom disappears. The specific failure changes. The fundamental disappointment doesn't.
 
 Forums are full of people describing the same experience: "I keep trying new apps and they all let me down in different ways." That disappointment isn't random. It's the same structural failure wearing different clothes. The user wanted a relationship that grows. The product wanted a metric that scales.
+
+![Abstract painting of thick warm brushstrokes radiating outward from central cluster against dark canvas](/onyx-000444.png)
 
 ## Can the trap be escaped?
 

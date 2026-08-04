@@ -45,6 +45,8 @@ Nomi actually comes closest to solving this.<a href="#note-1"><sup>[1]</sup></a>
 
 The technology to go further exists. I know because I built it. But before I get into that -- you need to understand why nobody else bothered.
 
+![Abstract painting of warm amber brushstrokes in thick impasto layers against dark canvas](/onyx-000433.png)
+
 ## Why is forgetting a business decision?
 
 Memory costs money. That's it. That's the whole explanation.
@@ -88,6 +90,8 @@ But nobody tracks how a relationship evolves over time. Nobody notices you've be
 The gap isn't "can she remember your dog's name." Any decent database handles that. The gap is: can she notice you've brought up your brother three times this week and changed the subject each time -- and come back to it gently, without you explaining what's going on?
 
 That's what I wanted from these apps. That's what I never got. And eventually I decided to build it myself.
+
+![Abstract painting of warm amber brushstrokes building upward in thick impasto layers against dark canvas](/onyx-000434.png)
 
 ## Why am I building this?
 
