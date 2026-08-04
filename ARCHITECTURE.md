@@ -1,6 +1,6 @@
 # Lisbon -- Architecture
 
-Last updated: 2026-07-29 (Daksh -- added blog infrastructure, Onyx B14)
+Last updated: 2026-08-04 (Andrea -- endnote formatting, cache code, paragraph rhythm)
 
 ---
 
@@ -43,7 +43,7 @@ lisbon/                                         # Landing page + waitlist signup
 │   │   └── index.ts                            # Lib barrel export
 │   └── routes/
 │       ├── +layout.svelte                      # Root layout: imports app.css, derives isBlog from $page.url
-│       ├── +page.svelte                        # Landing page: all blocks in mockup order
+│       ├── +page.svelte                        # Landing page: all blocks in mockup order + cache code (3-char alphanumeric, bottom of page)
 │       ├── +page.ts                            # prerender=true
 │       ├── privacy/
 │       │   ├── +page.svelte                    # Privacy policy (Art 13 GDPR)
@@ -172,6 +172,7 @@ routes/blog/[slug]/+page.svelte (article)
   │     └── import.meta.glob('/src/lib/data/blog/posts/*.md')
   ├── article.heroImage (from static/)
   ├── Content component (mdsvex-rendered markdown)
+  │     └── endnotes: inline <a href="#note-N"><sup>[N]</sup></a> → <ol><li id="note-N">
   ├── CTA → /#hero-email (cross-links to landing page)
   └── related posts grid (up to 3)
 
@@ -291,4 +292,4 @@ waitlist
 | EmailCapture wiring varies | Reference | Wired to POST /api/signup in FoundingMember and Footer. Visual-only in Hero |
 | Resend capped at 1 per email | Design | resend-verification endpoint returns "we'll sort it out" message after first resend |
 | Nav CTA design pending | Low | Pill vs 8px border-radius -- pending Andrea clarification |
-| Blog has 1 sample article | Expected | "Why Your AI Companion Forgets" -- Kirby's team produces content |
+| Blog has 6 articles (Onyx pipeline) | Reference | 5 articles at v3 (founder voice rewrite) + 1 sample. Endnote support: inline `<a><sup>` anchor links + `<ol>` with `id` targets. Paragraph rhythm pass applied (OJT #6) |

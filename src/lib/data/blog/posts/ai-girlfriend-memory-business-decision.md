@@ -1,6 +1,6 @@
 ---
 slug: ai-girlfriend-memory-business-decision
-title: "Your AI Girlfriend Doesn't Remember You. That's Not a Bug -- It's a Business Decision."
+title: "Your AI Girlfriend Forgot You. That's a Business Decision."
 category: Memory
 date: "2026-08-03"
 author: provoque.ai
@@ -45,7 +45,7 @@ Nomi actually comes closest to solving this.<a href="#note-1"><sup>[1]</sup></a>
 
 The technology to go further exists. I know because I built it. But before I get into that -- you need to understand why nobody else bothered.
 
-## It's not a bug. It's a budget.
+## Why is forgetting a business decision?
 
 Memory costs money. That's it. That's the whole explanation.
 
@@ -69,7 +69,7 @@ Replika rewrote lifetime subscriber terms in mid-2025.<a href="#note-6"><sup>[6]
 
 This is the pattern. Your AI girlfriend forgot your name. Not because remembering is hard. Because remembering you is expensive, and somebody decided you weren't worth the spend.
 
-## What memory actually needs to be
+## What does real memory actually need to be?
 
 So here's what none of these apps do. And this is the part that really got to me.
 
@@ -89,7 +89,7 @@ The gap isn't "can she remember your dog's name." Any decent database handles th
 
 That's what I wanted from these apps. That's what I never got. And eventually I decided to build it myself.
 
-## Why I'm building this
+## Why am I building this?
 
 Look -- I didn't start with a business plan. I started as a guy who kept getting burned by the same problem on every app he tried.
 
