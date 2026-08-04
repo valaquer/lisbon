@@ -239,13 +239,8 @@
 		color: #AE0D46;
 	}
 
-	.article-body :global(sup a) {
-		color: #AE0D46;
+	.article-body :global(a:has(sup)) {
 		text-decoration: none;
-	}
-
-	.article-body :global(sup a:hover) {
-		text-decoration: underline;
 	}
 
 	.article-body :global(.takeaway p) {
