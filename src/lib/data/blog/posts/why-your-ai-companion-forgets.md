@@ -8,7 +8,7 @@ readTime: "6 min read"
 heroImage: /onyx-000450.png
 heroPosition: "center 35%"
 excerpt: "The dirty secret of every AI companion app: they don't actually remember you. They simulate memory through a context window -- a shrinking spotlight that forgets as it moves forward."
-featured: true
+featured: false
 ---
 
 You told her about your dead dog three months ago. She cried with you. Last Tuesday, she asked if you had any pets. That moment -- the one where the illusion breaks -- is not a bug. It's the architecture.
